@@ -30,4 +30,17 @@ public class ClienteService {
 		return clienteRepository.findById(correo)
 				.orElseThrow(() -> new UserNotFoundException(correo));
 	}
+	
+	public Cliente updateCliente(Cliente cliente, String id) {
+		return clienteRepository.findById(id)
+				.map(clienteMap -> {
+					clienteMap.setNombre(cliente.getNombre());
+					clienteMap.setApellidoPaterno(cliente.getApellidoPaterno());
+					clienteMap.setApellidoMaterno(cliente.getApellidoMaterno());
+					clienteMap.setFechaNacimiento(cliente.getFechaNacimiento());
+					clienteMap.setPassword(cliente.getPassword());
+					return clienteRepository.save(clienteMap);
+				})
+				.orElseThrow(() -> new UserNotFoundException(id));
+	}
 }
