@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,12 @@ public class ClienteController {
 	@GetMapping("/{id}")
 	public Cliente getUserbyId(@PathVariable(name = "id") String correo) {
 		return clienteService.getById(correo);
+	}
+	
+	
+	@PutMapping("/{id}")
+	public Cliente updateCliente(@RequestBody Cliente cliente, @PathVariable(name = "id") String id) {
+		return clienteService.updateCliente(cliente, id);
 	}
 
 	
