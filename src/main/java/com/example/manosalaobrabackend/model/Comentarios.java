@@ -1,33 +1,128 @@
 package com.example.manosalaobrabackend.model;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 
-public class Comentarios {
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/manosalaobrabackend";
-        String user = "root";
-        String password = "Salono8899890!";
+import java.util.Objects;
 
-        String createTableSQL = "CREATE TABLE Comentario ("
-                + "id_comentario INT NOT NULL AUTO_INCREMENT, "
-                + "cant_like INT, "
-                + "fecha_hora DATETIME, "
-                + "cuerpo VARCHAR(350), "
-                + "estrellas INT(1), "
-                + "cliente_correo VARCHAR(45), "
-                + "PRIMARY KEY (id_comentario), "
-                + "FOREIGN KEY (cliente_correo) REFERENCES Cliente(correo)"
-                + ") ENGINE=InnoDB";
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-        try (Connection connection = DriverManager.getConnection(url, user, password);
-             Statement statement = connection.createStatement()) {
-            
-            statement.executeUpdate(createTableSQL);
-            System.out.println("Table 'Comentario' created successfully!");
+@Entity // Declaramos que esta clase será una entidad
+@Table(name = "cliente") //Asignamos el nombre de la tabla para la entidad
+public class Cliente {
+	@Id // Asignamos un Id
+	@Column(name = "correo", length = 45, nullable = false, unique = true)
+	private String correo;
+	@Column(name = "nombre", length = 45, nullable = false, unique = false)
+	private String nombre;
+	@Column(name = "ape_paterno", length = 45, nullable = false, unique = false)
+	private String apellidoPaterno;
+	@Column(name = "ape_materno", length = 45, nullable = false, unique = false)
+	private String apellidoMaterno;
+	@Column(name = "fecha_nacimiento", length = 10, nullable  = false, unique = false)
+	private String fechaNacimiento;
+	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
+	private String password;
+	
+	//Declaramos un construtor para JPA
+	public Cliente() {
+	}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	//Declaramos un constructor con todos los atributos.
+	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
+			String password) {
+		this.correo = correo;
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.fechaNacimiento = fechaNacimiento;
+		this.password = password;
+	}
+
+	//Getters y Setters
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
+
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	public String getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(String fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	//Creamos un método toString para imprimir la información de los clientes.
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Cliente [correo=").append(correo).append(", nombre=").append(nombre)
+				.append(", apellidoPaterno=").append(apellidoPaterno).append(", apellidoMaterno=")
+				.append(apellidoMaterno).append(", fechaNacimiento=").append(fechaNacimiento).append(", password=")
+				.append(password).append("]");
+		return builder.toString();
+	}
+
+	//Declaramos un método para verificar el valor hash de los objetos.
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, nombre, password);
+	}
+
+	//Declaramos un método equals para verificar que no haya objetos iguales.
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(apellidoMaterno, other.apellidoMaterno)
+				&& Objects.equals(apellidoPaterno, other.apellidoPaterno) && Objects.equals(correo, other.correo)
+				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(password, other.password);
+	}
+	
+	
+	
+	
+	
 }
