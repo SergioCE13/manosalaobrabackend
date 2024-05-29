@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,7 +31,14 @@ public class Tarjeta{
 	@Column(name="compania",length=16, nullable=false, unique=true)
 	private String compania;
 	
-	public Tarjeta() {}
+	//-------------- De claramos la relación ManyToOne para Tarjeta referenciando a cliente.
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "correo" ,nullable = false)
+	private Cliente cliente;
+	
+	public Tarjeta() {
+		
+	}
 	
 	public Tarjeta(Long id, int numero, String tarjetahabiente, int fecha_expiracion, int cvv, String banco, String compania) {
 		this.id=id;
