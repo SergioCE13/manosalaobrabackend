@@ -1,0 +1,16 @@
+server:
+ port: 8081
+
+spring:
+ application:
+  name: manosalaobrabackend
+  
+ datasource:
+  url: jdbc:mysql://localhost:3306/manosalaobrabackend
+  username: root
+  password: SBLM13
+  
+ jpa:
+  hibernate:
+   #ddl-auto: create
+   ddl-auto: update
