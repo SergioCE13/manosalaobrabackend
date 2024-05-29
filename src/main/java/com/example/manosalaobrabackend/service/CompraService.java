@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.manosalaobrabackend.exceptions.CompraNotFoundException;
 import com.example.manosalaobrabackend.model.Compra;
 import com.example.manosalaobrabackend.repository.CompraRepository;
 
@@ -23,4 +24,18 @@ public class CompraService {
 		//Se retornan todas las compras encontradas.
 		return compraRepository.findAll();
 	}
+	
+	// Post compra. Guardamos las compras realizadas
+	public Compra postCompra(Compra nuevaCompra) {
+		return compraRepository.save(nuevaCompra);
+	}
+	
+	// Get Compra mediante Id, creamos un método que nos permita  recuperar un usuario por Id, y tenemos que validar mediante backend que la compra especificada con el Id exista.
+	public Compra getById(Long id) {
+		return compraRepository.findById(id)
+				.orElseThrow(() -> new CompraNotFoundException(id));
+	}
+	
+	
+	
 }

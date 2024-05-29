@@ -24,4 +24,6 @@ public class ProductoService {
 		//Se retornan todos los productos encontrados.
 		return productoRepository.findAll();
 	}
+	
+	
 }

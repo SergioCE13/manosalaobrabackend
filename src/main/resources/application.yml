@@ -8,7 +8,7 @@ spring:
  datasource:
   url: jdbc:mysql://localhost:3306/manosalaobrabackend
   username: root
-  password: SBLM13
+  password: oxfordSOMBRA123
   
  jpa:
   hibernate:
