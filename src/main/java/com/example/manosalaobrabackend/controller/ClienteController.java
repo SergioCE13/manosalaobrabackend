@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.manosalaobrabackend.model.Cliente;
 import com.example.manosalaobrabackend.service.ClienteService;
-
 @RestController
 @RequestMapping("/api/manosalaobrabackend/cliente")
 public class ClienteController {
@@ -25,5 +27,16 @@ public class ClienteController {
 		return clienteService.getAll();
 	}
 	
+	//Mapear Post y recibir como parámetro del método una anotación @RequestBody pra vinularlo con el valor (atributos) del cuerpo del modelo
+	@PostMapping
+	public Cliente newUser(@RequestBody Cliente cliente) { //Cuando se vea una anotacion Reuest Body signific que voy a recibir todos los atrbutos existentes en el modelo, por ende, se deben indicar en el oren en que estan en el modelo.
+		return clienteService.postCliente(cliente);
+	}
+	
+	@GetMapping("/{id}")
+	public Cliente getUserbyId(@PathVariable(name = "id") String correo) {
+		return clienteService.getById(correo);
+	}
+
 	
 }
