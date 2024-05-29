@@ -8,23 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.manosalaobrabackend.model.Respuestas;
-import com.example.manosalaobrabackend.repository.RespuestasRepository;
 import com.example.manosalaobrabackend.service.RespuestasService;
 
 @RestController
 @RequestMapping("/api/manosalaobrabackend/respuestas")
 public class RespuestasController {
+	//Se manda a llamar al servicio
 	private final RespuestasService respuestasService;
 
+	//Se inyectan las dependencias
 	@Autowired
 	public RespuestasController(RespuestasService RespuestasService) {
 		this.respuestasService = RespuestasService;
 	}
 	
+	//Mapeando los metodos
 	@GetMapping
 	public List<Respuestas> getAllControler(){
 		return respuestasService.getAll();
 	}
 	
-}	
-
+}

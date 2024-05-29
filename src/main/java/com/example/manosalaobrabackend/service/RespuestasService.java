@@ -10,6 +10,7 @@ import com.example.manosalaobrabackend.repository.RespuestasRepository;
 
 @Service 
 public class RespuestasService {
+	//Se manda a llamar a RespuestasRepository
 	private RespuestasRepository respuestasRepository;
 
 	@Autowired
@@ -20,5 +21,4 @@ public class RespuestasService {
 	public List<Respuestas> getAll(){
 		return respuestasRepository.findAll();
 	}
-	
 }

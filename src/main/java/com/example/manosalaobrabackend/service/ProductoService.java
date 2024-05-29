@@ -2,11 +2,13 @@ package com.example.manosalaobrabackend.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.repository.ProductoRepository;
+
 
 @Service // Anotación que indica que esta clase es un servicio en la arquitectura Spring
 public class ProductoService {
@@ -24,4 +26,9 @@ public class ProductoService {
 		//Se retornan todos los productos encontrados.
 		return productoRepository.findAll();
 	}
+
+	
+	
 }
+
+
