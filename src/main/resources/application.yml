@@ -9,6 +9,7 @@ spring:
   url: jdbc:mysql://localhost:3306/manosalaobrabackend
   username: root
   password: Aleiram0105.
+
   
  jpa:
   hibernate:

@@ -27,6 +27,7 @@ public class ProductoService {
 		//Se retornan todos los productos encontrados.
 		return productoRepository.findAll();
 	}
+
 	public Producto postProducto(Producto newProducto) {
 		return productoRepository.save(newProducto); //retorna un método desde JPARepository(save)
 	}
@@ -65,9 +66,6 @@ public class ProductoService {
 					
 				})
 				.orElseThrow(() -> new UserNotFoundException(id));
-	}
-
-	
-	
+  }
 }
 
