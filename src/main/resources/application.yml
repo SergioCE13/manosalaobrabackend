@@ -1,16 +1,20 @@
 server:
- port: 8081
-
+ port: 8080
+ 
 spring:
  application:
-  name: manosalaobrabackend
-  
+  name: projectName
+
  datasource:
-  url: jdbc:mysql://localhost:3306/manosalaobrabackend
-  username: root
-  password: SBLM13
-  
+  url: jdbc:postgresql://${PROD_DB_HOSTNAME}:${PROD_DB_PORT}/${PROD_DB_NAME}
+  username: ${PROD_DB_USERNAME}
+  password: ${PROD_DB_PASSWORD}
+
  jpa:
   hibernate:
    ddl-auto: create
-   #ddl-auto: update
+
+logging:
+ level:
+  org.hibernate.SQL: DEBUG
+  org.hibernate.type: TRACE

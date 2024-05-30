@@ -1,0 +1,20 @@
+server:
+ port: 8080
+ 
+spring:
+ application:
+  name: projectName
+
+ datasource:
+  url: jdbc:postgresql://${PROD_DB_HOSTNAME}:${PROD_DB_PORT}/${PROD_DB_NAME}
+  username: ${PROD_DB_USERNAME}
+  password: ${PROD_DB_PASSWORD}
+
+ jpa:
+  hibernate:
+   ddl-auto: create
+
+logging:
+ level:
+  org.hibernate.SQL: DEBUG
+  org.hibernate.type: TRACE
