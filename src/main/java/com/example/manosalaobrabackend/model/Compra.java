@@ -1,6 +1,6 @@
 package com.example.manosalaobrabackend.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -8,7 +8,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 
 @Entity // Generamos una entidad para la tabla de compra
@@ -19,14 +24,27 @@ public class Compra {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column (name = "id")
 	private Long id;
-	@Column (name = "fechaHora", length = 30, nullable = false, unique= false)
-	private LocalDateTime fechaHora; // Utilizamos la api LocalDateTime para almacenar fecha y hora.
+	@Column (name = "fechaHora", length = 68, nullable = false, unique= false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private  Date fechaHora; // Utilizamos la api LocalDateTime para almacenar fecha y hora.
 	@Column (name = "total", length = 10, nullable = false, unique= false)
 	private double total;
 	@Column (name = "sinIva", length = 10, nullable = false, unique= false)
 	private double sinIva;
 	@Column (name = "cantidadProducto", length = 200, nullable = false, unique= false)
 	private int cantidadProducto;
+	
+	//--Relaciones entre compra y tarjeta &&  compra y cliente && compra y dirección----//
+	/*
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "correo", nullable = false)
+	private Cliente cliente;
+	
+	@OneToOne
+	@JoinColumn(name = "id_tarjeta", referencedColumnName = "id", nullable = false)
+	private Tarjeta tarjeta;
+	*/
+	
 	
 	
 	// Creamos un constructor vacío
@@ -36,20 +54,20 @@ public class Compra {
 
 
 	// Y un constructor con los campos llenos
-	public Compra(Long id, LocalDateTime fechaHora, double total, double sinIva, int cantidadProducto) {
+	public Compra(Long id, Date fechaHora, double total, double sinIva, int cantidadProducto) {
 		this.id = id;
 		this.fechaHora = fechaHora;
 		this.total = total;
 		this.sinIva = sinIva;
 		this.cantidadProducto = cantidadProducto;
 	}
+	
 
+	// Generamos Getters y Setters
 
-	// Mandamos a llamar getters y setters
 	public Long getId() {
 		return id;
 	}
-
 
 
 	public void setId(Long id) {
@@ -57,17 +75,14 @@ public class Compra {
 	}
 
 
-
-	public LocalDateTime getFechaHora() {
+	public Date getFechaHora() {
 		return fechaHora;
 	}
 
 
-
-	public void setFechaHora(LocalDateTime fechaHora) {
+	public void setFechaHora(Date fechaHora) {
 		this.fechaHora = fechaHora;
 	}
-
 
 
 	public double getTotal() {
@@ -75,11 +90,9 @@ public class Compra {
 	}
 
 
-
 	public void setTotal(double total) {
 		this.total = total;
 	}
-
 
 
 	public double getSinIva() {
@@ -87,17 +100,14 @@ public class Compra {
 	}
 
 
-
 	public void setSinIva(double sinIva) {
 		this.sinIva = sinIva;
 	}
 
 
-
 	public int getCantidadProducto() {
 		return cantidadProducto;
 	}
-
 
 
 	public void setCantidadProducto(int cantidadProducto) {
@@ -111,6 +121,7 @@ public class Compra {
 		return "Compra [id=" + id + ", fechaHora=" + fechaHora + ", total=" + total + ", sinIva=" + sinIva
 				+ ", cantidadProducto=" + cantidadProducto + "]";
 	}
+
 
 
 	//Utilizamos un método hashcode para determinar el valor hash de las compras.

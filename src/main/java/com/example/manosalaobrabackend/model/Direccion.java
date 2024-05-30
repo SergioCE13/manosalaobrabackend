@@ -2,11 +2,14 @@ package com.example.manosalaobrabackend.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +17,7 @@ import jakarta.persistence.Table;
 public class Direccion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false, unique = true)
+	@Column(name = "id")
 	private Long id;
 	@Column(name = "calle", length= 45, nullable = false, unique = false)
 	private String calle;
@@ -28,6 +31,17 @@ public class Direccion {
 	private String estado;
 	@Column(name = "cp", nullable = false, unique = false)
 	private int codigoPostal;
+	
+	@ManyToOne //(mappedBy = "cliente", cascade = cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonBackReference
+	private Cliente cliente;
+	
+	
+	
+	
+	
+	
+	
 	
 	// Constructor vacío
 	public Direccion() {
