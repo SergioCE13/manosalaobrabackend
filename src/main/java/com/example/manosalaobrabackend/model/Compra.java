@@ -1,7 +1,5 @@
 package com.example.manosalaobrabackend.model;
 
-
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -37,7 +35,7 @@ public class Compra {
 	private int cantidadProducto;
 	
 	//--Relaciones entre compra y tarjeta &&  compra y cliente && compra y dirección----//
-	
+	/*
 	@ManyToOne
 	@JoinColumn(name = "id_cliente", referencedColumnName = "correo", nullable = false)
 	private Cliente cliente;
@@ -45,7 +43,7 @@ public class Compra {
 	@OneToOne
 	@JoinColumn(name = "id_tarjeta", referencedColumnName = "id", nullable = false)
 	private Tarjeta tarjeta;
-	
+	*/
 	
 	
 	

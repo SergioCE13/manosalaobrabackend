@@ -26,6 +26,11 @@ public class DireccionService {
 		return direccionRepository.findAll();
 	}
 	
+	public Direccion postDireccion(Direccion nuevaDireccion) {
+		return direccionRepository.save(nuevaDireccion);
+	}
+	
+	
 	public Direccion getById(Long id) {
 		return direccionRepository.findById(id)
 				.orElseThrow(()->new DireccionNotFoundException(id));
