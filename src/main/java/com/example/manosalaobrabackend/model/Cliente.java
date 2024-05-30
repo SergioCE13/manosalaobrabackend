@@ -29,7 +29,8 @@ public class Cliente {
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
-	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
+	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor:
+
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	public List<Tarjeta> tarjetas;
