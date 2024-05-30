@@ -6,4 +6,5 @@ import com.example.manosalaobrabackend.model.Vendedor;
 
 public interface VendedorRepository extends JpaRepository <Vendedor, String>{
 
+	
 }
