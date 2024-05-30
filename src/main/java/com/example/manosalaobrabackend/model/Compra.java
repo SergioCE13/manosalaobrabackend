@@ -10,6 +10,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -32,6 +35,18 @@ public class Compra {
 	private double sinIva;
 	@Column (name = "cantidadProducto", length = 200, nullable = false, unique= false)
 	private int cantidadProducto;
+	
+	//--Relaciones entre compra y tarjeta &&  compra y cliente && compra y dirección----//
+	
+	@ManyToOne
+	@JoinColumn(name = "id_cliente", referencedColumnName = "correo", nullable = false)
+	private Cliente cliente;
+	
+	@OneToOne
+	@JoinColumn(name = "id_tarjeta", referencedColumnName = "id", nullable = false)
+	private Tarjeta tarjeta;
+	
+	
 	
 	
 	// Creamos un constructor vacío
