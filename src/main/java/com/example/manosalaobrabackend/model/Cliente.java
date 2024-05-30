@@ -53,6 +53,8 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 		this.password = password;
 	}
+	
+	
 
 	//Getters y Setters
 	public String getCorreo() {
