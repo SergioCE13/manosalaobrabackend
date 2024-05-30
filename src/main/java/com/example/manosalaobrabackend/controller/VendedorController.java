@@ -19,7 +19,7 @@ import com.example.manosalaobrabackend.service.VendedorService;
 @RequestMapping("/api/manosalaobrabackend/vendedor")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class VendedorController {
-	public VendedorService vendedorService;
+	private VendedorService vendedorService;
 
 	@Autowired
 	public VendedorController(VendedorService vendedorService) {

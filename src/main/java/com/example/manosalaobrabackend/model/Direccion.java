@@ -37,12 +37,6 @@ public class Direccion {
 	private Cliente cliente;
 	
 	
-	
-	
-	
-	
-	
-	
 	// Constructor vacío
 	public Direccion() {
 	}
