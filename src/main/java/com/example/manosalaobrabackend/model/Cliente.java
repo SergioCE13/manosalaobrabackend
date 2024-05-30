@@ -3,6 +3,8 @@ package com.example.manosalaobrabackend.model;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,13 +29,15 @@ public class Cliente {
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
-	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Dirección:
+	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	public List<Tarjeta> tarjetas;
 	
 	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
-	//@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	//@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	//public List<Direccion> direcciones;
+	
 	
 	//Declaramos un construtor para JPA
 	public Cliente() {
