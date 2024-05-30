@@ -3,9 +3,10 @@ package com.example.manosalaobrabackend.service;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.example.manosalaobrabackend.exceptions.UserNotFoundException;
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.repository.ProductoRepository;
 
@@ -26,9 +27,47 @@ public class ProductoService {
 		//Se retornan todos los productos encontrados.
 		return productoRepository.findAll();
 	}
+	public Producto postProducto(Producto newProducto) {
+		return productoRepository.save(newProducto); //retorna un método desde JPARepository(save)
+	}
+	
+	//productos
+	public  Producto getById(String name) {
+		return productoRepository.findById(name)
+				.orElseThrow(() -> new UserNotFoundException(name));
+	}
+	public Producto deleteProducto(Producto producto, String name) {
+		return productoRepository.save(producto);
+	}
+	
+	
+	//Debe de crear la excepción producto NotFoundException
+	
+	
+	//Productos esoecifico
+	public Producto updateProducto(Producto producto, String id) {
+		return productoRepository.findById(id)
+				.map(productoMap -> {
+					productoMap.setNombre(producto.getNombre());
+					productoMap.setPrecio(producto.getPrecio());
+					productoMap.setMedidaAlto(producto.getMedidaAlto());
+					productoMap.setMedidaAncho(producto.getMedidaAncho());
+					productoMap.setMedidaLargo(producto.getMedidaLargo());
+					productoMap.setDescripcion(producto.getDescripcion());
+					productoMap.setTecnica(producto.getTecnica());
+					productoMap.setMateriales(producto.getMateriales());
+					productoMap.setStock(producto.getStock());
+					productoMap.setInfoAdicional(producto.getInfoAdicional());
+					productoMap.setProductos(producto.getProductos());
+					productoMap.setVendedor(producto.getVendedor());
+					
+					return productoRepository.save(productoMap);
+					
+				})
+				.orElseThrow(() -> new UserNotFoundException(id));
+	}
 
 	
 	
 }
-
 
