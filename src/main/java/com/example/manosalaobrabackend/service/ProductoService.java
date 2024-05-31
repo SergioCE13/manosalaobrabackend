@@ -58,7 +58,7 @@ public class ProductoService {
 					productoMap.setTecnica(producto.getTecnica());
 					productoMap.setStock(producto.getStock());
 					productoMap.setInfoAdicional(producto.getInfoAdicional());
-					productoMap.setProductos(producto.getProductos());
+					productoMap.setImagenes(producto.getImagenes());
 	
 					return productoRepository.save(productoMap);
 					

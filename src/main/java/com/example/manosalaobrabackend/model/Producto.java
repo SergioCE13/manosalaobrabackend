@@ -1,6 +1,6 @@
 package com.example.manosalaobrabackend.model;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -39,9 +39,10 @@ public class Producto {
 	
 	//Como un archivo de tipo BLOB que permite subir una imagen del producto
 	@Lob //Large OBject, indica que un archivo de tipo BLOB se enviara a la base de datos. (img, pdf,xsl, etc)
-	@Column (name ="producto", length = 200, nullable = false, unique=false)
-	private byte [] productos;
+	@Column(name = "imagenes", nullable = false, unique = false)
+	private List<String> imagenes;
 	
+
 	
 	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor Muchos productos pueden tener un vendedor,y un vendedor puede tener muchos productos :
 		//@ManyToOne
@@ -67,8 +68,10 @@ public class Producto {
 	}
 
 
+
 	public Producto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo,
-			String categoria, String descripcion, String tecnica, int stock, String infoAdicional, byte[] productos) {
+			String categoria, String descripcion, String tecnica, int stock, String infoAdicional,
+			List<String> imagenes) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.medidaAlto = medidaAlto;
@@ -79,8 +82,9 @@ public class Producto {
 		this.tecnica = tecnica;
 		this.stock = stock;
 		this.infoAdicional = infoAdicional;
-		this.productos = productos;
+		this.imagenes = imagenes;
 	}
+
 
 
 	public String getNombre() {
@@ -88,9 +92,11 @@ public class Producto {
 	}
 
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 
 	public double getPrecio() {
@@ -98,9 +104,11 @@ public class Producto {
 	}
 
 
+
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
 
 
 	public double getMedidaAlto() {
@@ -108,9 +116,11 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaAlto(double medidaAlto) {
 		this.medidaAlto = medidaAlto;
 	}
+
 
 
 	public double getMedidaAncho() {
@@ -118,9 +128,11 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaAncho(double medidaAncho) {
 		this.medidaAncho = medidaAncho;
 	}
+
 
 
 	public double getMedidaLargo() {
@@ -128,9 +140,11 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaLargo(double medidaLargo) {
 		this.medidaLargo = medidaLargo;
 	}
+
 
 
 	public String getCategoria() {
@@ -138,9 +152,11 @@ public class Producto {
 	}
 
 
+
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
 
 
 	public String getDescripcion() {
@@ -148,9 +164,11 @@ public class Producto {
 	}
 
 
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 
 
 	public String getTecnica() {
@@ -158,9 +176,11 @@ public class Producto {
 	}
 
 
+
 	public void setTecnica(String tecnica) {
 		this.tecnica = tecnica;
 	}
+
 
 
 	public int getStock() {
@@ -168,9 +188,11 @@ public class Producto {
 	}
 
 
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
 
 
 	public String getInfoAdicional() {
@@ -178,19 +200,23 @@ public class Producto {
 	}
 
 
+
 	public void setInfoAdicional(String infoAdicional) {
 		this.infoAdicional = infoAdicional;
 	}
 
 
-	public byte[] getProductos() {
-		return productos;
+
+	public List<String> getImagenes() {
+		return imagenes;
 	}
 
 
-	public void setProductos(byte[] productos) {
-		this.productos = productos;
+
+	public void setImagenes(List<String> imagenes) {
+		this.imagenes = imagenes;
 	}
+
 
 
 	@Override
@@ -200,21 +226,18 @@ public class Producto {
 				.append(medidaAlto).append(", medidaAncho=").append(medidaAncho).append(", medidaLargo=")
 				.append(medidaLargo).append(", categoria=").append(categoria).append(", descripcion=")
 				.append(descripcion).append(", tecnica=").append(tecnica).append(", stock=").append(stock)
-				.append(", infoAdicional=").append(infoAdicional).append(", productos=")
-				.append(Arrays.toString(productos)).append("]");
+				.append(", infoAdicional=").append(infoAdicional).append(", imagenes=").append(imagenes).append("]");
 		return builder.toString();
 	}
 
 
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Arrays.hashCode(productos);
-		result = prime * result + Objects.hash(categoria, descripcion, infoAdicional, medidaAlto, medidaAncho,
-				medidaLargo, nombre, precio, stock, tecnica);
-		return result;
+		return Objects.hash(categoria, descripcion, imagenes, infoAdicional, medidaAlto, medidaAncho, medidaLargo,
+				nombre, precio, stock, tecnica);
 	}
+
 
 
 	@Override
@@ -227,15 +250,16 @@ public class Producto {
 			return false;
 		Producto other = (Producto) obj;
 		return Objects.equals(categoria, other.categoria) && Objects.equals(descripcion, other.descripcion)
-				&& Objects.equals(infoAdicional, other.infoAdicional)
+				&& Objects.equals(imagenes, other.imagenes) && Objects.equals(infoAdicional, other.infoAdicional)
 				&& Double.doubleToLongBits(medidaAlto) == Double.doubleToLongBits(other.medidaAlto)
 				&& Double.doubleToLongBits(medidaAncho) == Double.doubleToLongBits(other.medidaAncho)
 				&& Double.doubleToLongBits(medidaLargo) == Double.doubleToLongBits(other.medidaLargo)
 				&& Objects.equals(nombre, other.nombre)
-				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
-				&& Arrays.equals(productos, other.productos) && stock == other.stock
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio) && stock == other.stock
 				&& Objects.equals(tecnica, other.tecnica);
 	}
+
+
 	
 	
 }
