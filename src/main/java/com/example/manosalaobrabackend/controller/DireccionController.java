@@ -16,7 +16,7 @@ import com.example.manosalaobrabackend.service.DireccionService;
 
 
 @RestController // Clase que maneja solicitudes HTTP entrantes y envía respuestas HTTP en una aplicación web de SPRING.
-@RequestMapping("/api/manosalaobrabackend/direccion")//: Define la url base para todas las rutas manejadas por este controlador.
+@RequestMapping("/api/mao/direccion")//: Define la url base para todas las rutas manejadas por este controlador.
 public class DireccionController {
 
 	private final DireccionService direccionService;
@@ -40,7 +40,7 @@ public class DireccionController {
 	public Direccion DireccionById(@PathVariable (name = "id")Long id) {
 		return direccionService.getById(id);
 	}
-	
+
 	
 	
 	

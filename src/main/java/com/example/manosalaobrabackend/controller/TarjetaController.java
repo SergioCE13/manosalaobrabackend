@@ -16,7 +16,7 @@ import com.example.manosalaobrabackend.model.Tarjeta;
 import com.example.manosalaobrabackend.service.TarjetaService;
 
 @RestController
-@RequestMapping("/api/manosalaobrabackend/tarjeta")
+@RequestMapping("/api/mao/tarjeta")
 public class TarjetaController {
 	private TarjetaService tarjetaService;
 	

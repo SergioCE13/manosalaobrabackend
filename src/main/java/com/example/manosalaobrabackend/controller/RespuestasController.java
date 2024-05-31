@@ -11,7 +11,7 @@ import com.example.manosalaobrabackend.model.Respuestas;
 import com.example.manosalaobrabackend.service.RespuestasService;
 
 @RestController
-@RequestMapping("/api/manosalaobrabackend/respuestas")
+@RequestMapping("/api/mao/respuestas")
 public class RespuestasController {
 	//Se manda a llamar al servicio
 	private final RespuestasService respuestasService;

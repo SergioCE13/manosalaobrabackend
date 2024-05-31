@@ -14,7 +14,7 @@ import com.example.manosalaobrabackend.model.Compra;
 import com.example.manosalaobrabackend.service.CompraService;
 
 @RestController // Clase que maneja solicitudes HTTP entrantes y envía respuestasHTTP en una aplicación web de SPRING.
-@RequestMapping("/api/manosalaobrabackend/compra") // Anotación que define la url base para todas las rutas manejadas poor este controlador.
+@RequestMapping("/api/mao/compra") // Anotación que define la url base para todas las rutas manejadas poor este controlador.
 public class CompraController {
 	
 	private final CompraService compraService;
