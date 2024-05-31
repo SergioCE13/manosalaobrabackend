@@ -5,8 +5,6 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.manosalaobrabackend.exceptions.ProductoNotFoundException;
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.service.ProductoService;
 
@@ -49,8 +45,8 @@ public class ProductoController {
 	}
 	
 	@GetMapping ("/{id}")
-	public Producto getbyId (@PathVariable (name = "id") String name) {
-		return productoService.getById(name);
+	public Producto getProductoById(@PathVariable (name = "id") String id) {
+		return productoService.getById(id);
 	}
 	
 	@PutMapping ("/{id}")
@@ -63,7 +59,8 @@ public class ProductoController {
 		return productoService.deleteProducto (producto,name);
 	}
 	
-	//Se crea la excepción
+	/*
+	 * //Se crea la excepción
 	@GetMapping ("/{name}")
 	public ResponseEntity<Producto> getProductoById (@PathVariable String name){
 	Producto producto = productoService.getById(name);
@@ -72,6 +69,7 @@ public class ProductoController {
 		}
 		return new ResponseEntity <>(producto, HttpStatus.OK);
 	}
+	 * */
                
 }
 	
