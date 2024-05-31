@@ -2,11 +2,10 @@ package com.example.manosalaobrabackend.service;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.manosalaobrabackend.exceptions.UserNotFoundException;
+
+import com.example.manosalaobrabackend.exceptions.ProductoNotFoundException;
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.repository.ProductoRepository;
 
@@ -33,10 +32,11 @@ public class ProductoService {
 	}
 	
 	//productos
-	public  Producto getById(String name) {
-		return productoRepository.findById(name)
-				.orElseThrow(() -> new UserNotFoundException(name));
+	public  Producto getById(String id) {
+		return productoRepository.findById(id)
+				.orElseThrow(() -> new ProductoNotFoundException(id));
 	}
+	
 	public Producto deleteProducto(Producto producto, String name) {
 		return productoRepository.save(producto);
 	}
@@ -56,16 +56,14 @@ public class ProductoService {
 					productoMap.setMedidaLargo(producto.getMedidaLargo());
 					productoMap.setDescripcion(producto.getDescripcion());
 					productoMap.setTecnica(producto.getTecnica());
-					productoMap.setMateriales(producto.getMateriales());
 					productoMap.setStock(producto.getStock());
 					productoMap.setInfoAdicional(producto.getInfoAdicional());
 					productoMap.setProductos(producto.getProductos());
-					productoMap.setVendedor(producto.getVendedor());
-					
+	
 					return productoRepository.save(productoMap);
 					
 				})
-				.orElseThrow(() -> new UserNotFoundException(id));
+				.orElseThrow(() -> new ProductoNotFoundException(id));
   }
 }
 

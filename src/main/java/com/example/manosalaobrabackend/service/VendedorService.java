@@ -37,6 +37,8 @@ public class VendedorService {
 					vendedorMap.setNombre(vendedor.getNombre());
 					vendedorMap.setApellidoPaterno(vendedor.getApellidoPaterno());
 					vendedorMap.setApellidoMaterno(vendedor.getApellidoMaterno());
+					vendedorMap.setGenero(vendedor.getGenero());
+					vendedorMap.setTelefono(vendedor.getTelefono());
 					vendedorMap.setFechaNacimiento(vendedor.getFechaNacimiento());
 					vendedorMap.setPassword(vendedor.getPassword());
 					return vendedorRepository.save(vendedorMap);
