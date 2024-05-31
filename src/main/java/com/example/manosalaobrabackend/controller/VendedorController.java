@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.manosalaobrabackend.model.Vendedor;
 import com.example.manosalaobrabackend.service.VendedorService;
 @RestController
-@RequestMapping("/api/manosalaobrabackend/vendedor")
+@RequestMapping("/api/mao/vendedor")
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class VendedorController {
 	private VendedorService vendedorService;

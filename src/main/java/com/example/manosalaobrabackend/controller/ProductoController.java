@@ -22,7 +22,7 @@ import com.example.manosalaobrabackend.service.ProductoService;
 
 
 @RestController  // Anotación que indica que esta clase es un controlador REST de Spring.
-@RequestMapping("/api/manosalaobrabackend/producto") // Anotación que define la url base para todas las rutas manejadas por este controlador.
+@RequestMapping("/api/mao/producto") // Anotación que define la url base para todas las rutas manejadas por este controlador.
 public class ProductoController {
 //Se manda a llamar Service
 	private final ProductoService productoService;
