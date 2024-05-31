@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/comentarios")
+@RequestMapping("/api/mao/comentario")
 public class ComentarioController {
 
     @Autowired
