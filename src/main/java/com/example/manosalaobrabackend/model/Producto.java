@@ -1,13 +1,12 @@
 package com.example.manosalaobrabackend.model;
 
-
+import java.util.Arrays;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity //Indicamos que esta clase es una OMR 
@@ -15,9 +14,6 @@ import jakarta.persistence.Table;
 public class Producto {
 	//Declaramos los atributos de la entidad comenzando por el Id:
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long id;
 	@Column(name = "nombre", length = 45, nullable = false, unique = true)
 	private String nombre;
 	@Column(name = "precio", scale = 2, nullable = false, unique = false)
@@ -28,49 +24,45 @@ public class Producto {
 	private double medidaAncho;
 	@Column(name = "medida_largo", scale = 2, nullable = false, unique = false)
 	private double medidaLargo;
+	@Column(name = "categoria", length = 45, nullable = false, unique = false)
+	private String categoria; 
 	@Column(name = "descripcion", length = 500, nullable = false, unique = false)
 	private String descripcion;
 	@Column(name = "tecnica", length = 45, nullable = false, unique = false)
 	private String tecnica; 
-	@Column(name = "materiales", length = 100, nullable = false, unique = false)
-	private String materiales;
+	//@Column(name = "materiales", length = 100, nullable = false, unique = false)
+	//private String materiales;
 	@Column(name = "stock", nullable = false, unique = false)
 	private int stock;
 	@Column(name = "info_adicional", length = 200, nullable = false, unique = false)
 	private String infoAdicional;
+	
+	//Como un archivo de tipo BLOB que permite subir una imagen del producto
+	@Lob //Large OBject, indica que un archivo de tipo BLOB se enviara a la base de datos. (img, pdf,xsl, etc)
+	@Column(name = "foto", nullable = true, length = 1048576) // la longitud permite imagenes de hasta 1 MB 
+	private byte[] foto;
 	
 	
 	//Declaramos el constructor que necesita JPA para construir cualquier objeto.
 	public Producto() {
 	}
 
-// Declaramos un constructor con todos los atributos de la entidad
-	public Producto(Long id, String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo,
-			String descripcion, String tecnica, String materiales, int stock, String infoAdicional) {
-		this.id = id;
+	public Producto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo,
+			String categoria, String descripcion, String tecnica, int stock, String infoAdicional, byte[] foto) {
+		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.medidaAlto = medidaAlto;
 		this.medidaAncho = medidaAncho;
 		this.medidaLargo = medidaLargo;
+		this.categoria = categoria;
 		this.descripcion = descripcion;
 		this.tecnica = tecnica;
-		this.materiales = materiales;
 		this.stock = stock;
 		this.infoAdicional = infoAdicional;
+		this.foto = foto;
 	}
 
-	
-	
-	//Getters y Setters
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 
 	public String getNombre() {
@@ -78,9 +70,11 @@ public class Producto {
 	}
 
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 
 	public double getPrecio() {
@@ -88,9 +82,11 @@ public class Producto {
 	}
 
 
+
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
 
 
 	public double getMedidaAlto() {
@@ -98,9 +94,11 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaAlto(double medidaAlto) {
 		this.medidaAlto = medidaAlto;
 	}
+
 
 
 	public double getMedidaAncho() {
@@ -108,9 +106,11 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaAncho(double medidaAncho) {
 		this.medidaAncho = medidaAncho;
 	}
+
 
 
 	public double getMedidaLargo() {
@@ -118,9 +118,23 @@ public class Producto {
 	}
 
 
+
 	public void setMedidaLargo(double medidaLargo) {
 		this.medidaLargo = medidaLargo;
 	}
+
+
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
 
 
 	public String getDescripcion() {
@@ -128,9 +142,11 @@ public class Producto {
 	}
 
 
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 
 
 	public String getTecnica() {
@@ -138,19 +154,11 @@ public class Producto {
 	}
 
 
+
 	public void setTecnica(String tecnica) {
 		this.tecnica = tecnica;
 	}
 
-
-	public String getMateriales() {
-		return materiales;
-	}
-
-
-	public void setMateriales(String materiales) {
-		this.materiales = materiales;
-	}
 
 
 	public int getStock() {
@@ -158,9 +166,11 @@ public class Producto {
 	}
 
 
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
 
 
 	public String getInfoAdicional() {
@@ -168,27 +178,47 @@ public class Producto {
 	}
 
 
+
 	public void setInfoAdicional(String infoAdicional) {
 		this.infoAdicional = infoAdicional;
 	}
 
-//Declaramos un metodo toString para imprimir la información del Producto
+
+
+	public byte[] getFoto() {
+		return foto;
+	}
+
+
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", medidaAlto=" + medidaAlto
-				+ ", medidaAncho=" + medidaAncho + ", medidaLargo=" + medidaLargo + ", descripcion=" + descripcion
-				+ ", tecnica=" + tecnica + ", materiales=" + materiales + ", stock=" + stock + ", infoAdicional="
-				+ infoAdicional + "]";
+		return "Producto [nombre=" + nombre + ", precio=" + precio + ", medidaAlto=" + medidaAlto + ", medidaAncho="
+				+ medidaAncho + ", medidaLargo=" + medidaLargo + ", categoria=" + categoria + ", descripcion="
+				+ descripcion + ", tecnica=" + tecnica + ", stock=" + stock + ", infoAdicional=" + infoAdicional
+				+ ", foto=" + Arrays.toString(foto) + "]";
 	}
 
-//Declaramos el método hashCode para verificar el valor hash de los objetos.
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(descripcion, id, infoAdicional, materiales, medidaAlto, medidaAncho, medidaLargo, nombre,
-				precio, stock, tecnica);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(foto);
+		result = prime * result + Objects.hash(categoria, descripcion, infoAdicional, medidaAlto, medidaAncho,
+				medidaLargo, nombre, precio, stock, tecnica);
+		return result;
 	}
 
-//Declaramos el método equals para verificar que no existan objetos iguales.
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -198,8 +228,8 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
-		return Objects.equals(descripcion, other.descripcion) && Objects.equals(id, other.id)
-				&& Objects.equals(infoAdicional, other.infoAdicional) && Objects.equals(materiales, other.materiales)
+		return Objects.equals(categoria, other.categoria) && Objects.equals(descripcion, other.descripcion)
+				&& Arrays.equals(foto, other.foto) && Objects.equals(infoAdicional, other.infoAdicional)
 				&& Double.doubleToLongBits(medidaAlto) == Double.doubleToLongBits(other.medidaAlto)
 				&& Double.doubleToLongBits(medidaAncho) == Double.doubleToLongBits(other.medidaAncho)
 				&& Double.doubleToLongBits(medidaLargo) == Double.doubleToLongBits(other.medidaLargo)
@@ -210,7 +240,6 @@ public class Producto {
 	
 	
 	
-	
-	
-	
 }
+
+	

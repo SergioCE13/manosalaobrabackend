@@ -1,10 +1,13 @@
 package com.example.manosalaobrabackend.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.manosalaobrabackend.exceptions.ProductoNotFoundException;
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.repository.ProductoRepository;
 
@@ -24,4 +27,46 @@ public class ProductoService {
 		//Se retornan todos los productos encontrados.
 		return productoRepository.findAll();
 	}
+
+	public String postProducto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo, String categoria, String descripcion, String tecnica, int stock, String infoAdicional, MultipartFile file) {
+        try {
+            // Convertir el archivo a un array de bytes
+            byte[] foto = file.getBytes();
+
+            // Crear un nuevo objeto Registro con los datos recibidos
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setPrecio(precio);
+            producto.setMedidaAlto(medidaAlto);
+            producto.setMedidaAncho(medidaAncho);
+            producto.setCategoria(categoria);
+            producto.setDescripcion(descripcion);
+            producto.setTecnica(tecnica);
+            producto.setStock(stock);
+            producto.setInfoAdicional(infoAdicional);
+            producto.setFoto(foto); // Guardar el archivo como un array de bytes en la entidad Registro
+
+            // Guardar el registro en la base de datos utilizando el método save del repositorio
+            productoRepository.save(producto);
+
+            return "¡Registro guardado correctamente!";
+        } catch (IOException e) {
+            // Manejo de excepciones si ocurre un error al leer el archivo
+            return "Error al leer el archivo: " + e.getMessage();
+        } catch (Exception e) {
+            // Manejo de excepciones si ocurre un error al guardar el registro en la base de datos
+            return "Error al guardar el registro: " + e.getMessage();
+        }
+    }
+	
+	//productos
+	public  Producto getById(String id) {
+		return productoRepository.findById(id)
+				.orElseThrow(() -> new ProductoNotFoundException(id));
+	}
+	
+	
+	//Debe de crear la excepción producto NotFoundException
+	
 }
+

@@ -24,12 +24,17 @@ public class Cliente {
 	private String apellidoPaterno;
 	@Column(name = "ape_materno", length = 45, nullable = false, unique = false)
 	private String apellidoMaterno;
+	@Column(name = "genero", length = 45, nullable = false, unique = false)
+	private String genero;
+	@Column(name = "telefono", length = 10, nullable = false, unique = false)
+	private Long telefono;
 	@Column(name = "fecha_nacimiento", length = 10, nullable  = false, unique = false)
 	private String fechaNacimiento;
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
-	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
+	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor:
+	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	public List<Tarjeta> tarjetas;
@@ -42,19 +47,24 @@ public class Cliente {
 	//Declaramos un construtor para JPA
 	public Cliente() {
 	}
+	
+	
 
-	//Declaramos un constructor con todos los atributos.
-	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
-			String password) {
+	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String genero,
+			Long telefono, String fechaNacimiento, String password, List<Tarjeta> tarjetas) {
 		this.correo = correo;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
+		this.genero = genero;
+		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.password = password;
+		this.tarjetas = tarjetas;
 	}
 
-	//Getters y Setters
+
+
 	public String getCorreo() {
 		return correo;
 	}
@@ -87,6 +97,22 @@ public class Cliente {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public Long getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(Long telefono) {
+		this.telefono = telefono;
+	}
+
 	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
@@ -103,24 +129,37 @@ public class Cliente {
 		this.password = password;
 	}
 
-	//Creamos un método toString para imprimir la información de los clientes.
+	public List<Tarjeta> getTarjetas() {
+		return tarjetas;
+	}
+
+	public void setTarjetas(List<Tarjeta> tarjetas) {
+		this.tarjetas = tarjetas;
+	}
+
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Cliente [correo=").append(correo).append(", nombre=").append(nombre)
 				.append(", apellidoPaterno=").append(apellidoPaterno).append(", apellidoMaterno=")
-				.append(apellidoMaterno).append(", fechaNacimiento=").append(fechaNacimiento).append(", password=")
-				.append(password).append("]");
+				.append(apellidoMaterno).append(", genero=").append(genero).append(", telefono=").append(telefono)
+				.append(", fechaNacimiento=").append(fechaNacimiento).append(", password=").append(password)
+				.append(", tarjetas=").append(tarjetas).append("]");
 		return builder.toString();
 	}
 
-	//Declaramos un método para verificar el valor hash de los objetos.
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, nombre, password);
+		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, genero, nombre, password,
+				tarjetas, telefono);
 	}
 
-	//Declaramos un método equals para verificar que no haya objetos iguales.
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -132,12 +171,10 @@ public class Cliente {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(apellidoMaterno, other.apellidoMaterno)
 				&& Objects.equals(apellidoPaterno, other.apellidoPaterno) && Objects.equals(correo, other.correo)
-				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(password, other.password);
+				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
+				&& Objects.equals(tarjetas, other.tarjetas) && Objects.equals(telefono, other.telefono);
 	}
-	
-	
-	
-	
+
 	
 }

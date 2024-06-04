@@ -43,8 +43,11 @@ public class TarjetaService {
 		return tarjetaRepository.findById(id)
 				.map(tarjetaMap -> {
 					tarjetaMap.setTarjetahabiente(tarjeta.getTarjetahabiente());
-					tarjetaMap.setCvv(tarjeta.getCvv());
 					tarjetaMap.setFechaExpiracion(tarjeta.getFechaExpiracion());
+					tarjetaMap.setCvv(tarjeta.getCvv());
+					tarjetaMap.setBanco(tarjeta.getBanco());
+					tarjetaMap.setCompania(tarjeta.getCompania());
+					tarjetaMap.setCliente(tarjeta.getCliente());
 					return tarjetaRepository.save(tarjetaMap);
 				})
 				.orElseThrow(() -> new TarjetaNotFoundException(id));

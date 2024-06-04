@@ -12,7 +12,7 @@ import com.example.manosalaobrabackend.service.CarritoService;
 
 
 @RestController
-@RequestMapping("/api/manosalaobrabackend/carrito")
+@RequestMapping("/api/mao/carrito")
 public class CarritoController {
 	private final CarritoService carritoService;
 

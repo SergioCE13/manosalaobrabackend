@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.090s</div>
+<div class="counter">0.016s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 <a name="contextLoads()"></a>
 <h3 class="failures">contextLoads()</h3>
 <span class="code">
-<pre>java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@77cd235b testClass = com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests, locations = [], classes = [com.example.manosalaobrabackend.ManosalaobrabackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@34a75079, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2e029d61, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@acb0951, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@569bf9eb, org.springframework.boot.test.context.SpringBootTestAnnotation@4764d6be], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+<pre>java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@71139e77 testClass = com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests, locations = [], classes = [com.example.manosalaobrabackend.ManosalaobrabackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@732f29af, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@64ba3208, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2f17e30d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@23bff419, org.springframework.boot.test.context.SpringBootTestAnnotation@dddee6ee], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
@@ -165,7 +165,7 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 </thead>
 <tr>
 <td class="failures">contextLoads()</td>
-<td class="failures">0.090s</td>
+<td class="failures">0.016s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -173,8 +173,8 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>16:11:29.857 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests]: ManosalaobrabackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-16:11:30.148 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.manosalaobrabackend.ManosalaobrabackendApplication for test class com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests
+<pre>14:16:31.572 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests]: ManosalaobrabackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:16:31.697 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.manosalaobrabackend.ManosalaobrabackendApplication for test class com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -184,149 +184,149 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 
  :: Spring Boot ::                (v3.3.0)
 
-2024-05-30T16:11:31.039-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] .e.m.ManosalaobrabackendApplicationTests : Starting ManosalaobrabackendApplicationTests using Java 17.0.11 with PID 60122 (started by asbeltorales in /Users/asbeltorales/Documents/RepoGenBack/manosalaobrabackend)
-2024-05-30T16:11:31.043-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] .e.m.ManosalaobrabackendApplicationTests : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-05-30T16:11:32.446-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-30T16:11:32.634-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 175 ms. Found 7 JPA repository interfaces.
-2024-05-30T16:11:33.811-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-30T16:11:33.893-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-05-30T16:11:33.944-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-05-30T16:11:34.032-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -&gt; org.hibernate.type.BasicTypeReference@6a7a1a0d
-2024-05-30T16:11:34.032-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -&gt; org.hibernate.type.BasicTypeReference@6a7a1a0d
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -&gt; org.hibernate.type.BasicTypeReference@6a7a1a0d
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -&gt; org.hibernate.type.BasicTypeReference@1c6e3ff9
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.NumericBooleanConverter -&gt; org.hibernate.type.BasicTypeReference@1c6e3ff9
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -&gt; org.hibernate.type.BasicTypeReference@76e6c070
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.TrueFalseConverter -&gt; org.hibernate.type.BasicTypeReference@76e6c070
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -&gt; org.hibernate.type.BasicTypeReference@184afb78
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.YesNoConverter -&gt; org.hibernate.type.BasicTypeReference@184afb78
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -&gt; org.hibernate.type.BasicTypeReference@22da200e
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -&gt; org.hibernate.type.BasicTypeReference@22da200e
-2024-05-30T16:11:34.033-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -&gt; org.hibernate.type.BasicTypeReference@22da200e
-2024-05-30T16:11:34.035-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -&gt; org.hibernate.type.BasicTypeReference@4f26425b
-2024-05-30T16:11:34.040-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -&gt; org.hibernate.type.BasicTypeReference@4f26425b
-2024-05-30T16:11:34.042-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -&gt; org.hibernate.type.BasicTypeReference@4f26425b
-2024-05-30T16:11:34.043-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary_wrapper -&gt; org.hibernate.type.BasicTypeReference@33f4c769
-2024-05-30T16:11:34.044-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -&gt; org.hibernate.type.BasicTypeReference@33f4c769
-2024-05-30T16:11:34.045-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -&gt; org.hibernate.type.BasicTypeReference@4ebd6fd6
-2024-05-30T16:11:34.046-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -&gt; org.hibernate.type.BasicTypeReference@5e5a8718
-2024-05-30T16:11:34.046-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -&gt; org.hibernate.type.BasicTypeReference@5e5a8718
-2024-05-30T16:11:34.046-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -&gt; org.hibernate.type.BasicTypeReference@7404ddca
-2024-05-30T16:11:34.046-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob_wrapper -&gt; org.hibernate.type.BasicTypeReference@615e83ac
-2024-05-30T16:11:34.046-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -&gt; org.hibernate.type.BasicTypeReference@4438938e
-2024-05-30T16:11:34.047-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -&gt; org.hibernate.type.BasicTypeReference@4438938e
-2024-05-30T16:11:34.049-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -&gt; org.hibernate.type.BasicTypeReference@4438938e
-2024-05-30T16:11:34.052-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -&gt; org.hibernate.type.BasicTypeReference@4e50ae56
-2024-05-30T16:11:34.053-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -&gt; org.hibernate.type.BasicTypeReference@4e50ae56
-2024-05-30T16:11:34.053-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -&gt; org.hibernate.type.BasicTypeReference@4e50ae56
-2024-05-30T16:11:34.053-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -&gt; org.hibernate.type.BasicTypeReference@1c68d0db
-2024-05-30T16:11:34.053-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -&gt; org.hibernate.type.BasicTypeReference@1c68d0db
-2024-05-30T16:11:34.054-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -&gt; org.hibernate.type.BasicTypeReference@1c68d0db
-2024-05-30T16:11:34.055-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -&gt; org.hibernate.type.BasicTypeReference@9be7319
-2024-05-30T16:11:34.055-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -&gt; org.hibernate.type.BasicTypeReference@9be7319
-2024-05-30T16:11:34.055-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -&gt; org.hibernate.type.BasicTypeReference@9be7319
-2024-05-30T16:11:34.055-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -&gt; org.hibernate.type.BasicTypeReference@91a2543
-2024-05-30T16:11:34.055-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -&gt; org.hibernate.type.BasicTypeReference@91a2543
-2024-05-30T16:11:34.056-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -&gt; org.hibernate.type.BasicTypeReference@91a2543
-2024-05-30T16:11:34.057-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -&gt; org.hibernate.type.BasicTypeReference@42730828
-2024-05-30T16:11:34.058-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -&gt; org.hibernate.type.BasicTypeReference@42730828
-2024-05-30T16:11:34.058-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -&gt; org.hibernate.type.BasicTypeReference@18c7f6b5
-2024-05-30T16:11:34.058-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -&gt; org.hibernate.type.BasicTypeReference@18c7f6b5
-2024-05-30T16:11:34.058-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -&gt; org.hibernate.type.BasicTypeReference@629b780f
-2024-05-30T16:11:34.059-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -&gt; org.hibernate.type.BasicTypeReference@629b780f
-2024-05-30T16:11:34.059-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -&gt; org.hibernate.type.BasicTypeReference@629b780f
-2024-05-30T16:11:34.059-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character_nchar -&gt; org.hibernate.type.BasicTypeReference@3af36922
-2024-05-30T16:11:34.059-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -&gt; org.hibernate.type.BasicTypeReference@609b041c
-2024-05-30T16:11:34.060-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -&gt; org.hibernate.type.BasicTypeReference@609b041c
-2024-05-30T16:11:34.065-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -&gt; org.hibernate.type.BasicTypeReference@474e34e4
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -&gt; org.hibernate.type.BasicTypeReference@7e2c6702
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -&gt; org.hibernate.type.BasicTypeReference@7e2c6702
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -&gt; org.hibernate.type.BasicTypeReference@7e2c6702
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -&gt; org.hibernate.type.BasicTypeReference@5fb7ab9c
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -&gt; org.hibernate.type.BasicTypeReference@6734ff92
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -&gt; org.hibernate.type.BasicTypeReference@51eb0e84
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -&gt; org.hibernate.type.BasicTypeReference@4ce267cc
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -&gt; org.hibernate.type.BasicTypeReference@4ce267cc
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -&gt; org.hibernate.type.BasicTypeReference@2eebce87
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -&gt; org.hibernate.type.BasicTypeReference@2eebce87
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -&gt; org.hibernate.type.BasicTypeReference@6ee37ca7
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_char_array -&gt; org.hibernate.type.BasicTypeReference@6775c0d1
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_character_array -&gt; org.hibernate.type.BasicTypeReference@38f617f4
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -&gt; org.hibernate.type.BasicTypeReference@4899799b
-2024-05-30T16:11:34.066-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_character_array -&gt; org.hibernate.type.BasicTypeReference@3dea226b
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_char_array -&gt; org.hibernate.type.BasicTypeReference@74500e4f
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -&gt; org.hibernate.type.BasicTypeReference@7c91fe86
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -&gt; org.hibernate.type.BasicTypeReference@7c91fe86
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -&gt; org.hibernate.type.BasicTypeReference@7fc7152e
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -&gt; org.hibernate.type.BasicTypeReference@7fc7152e
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -&gt; org.hibernate.type.BasicTypeReference@13d289c7
-2024-05-30T16:11:34.067-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -&gt; org.hibernate.type.BasicTypeReference@13d289c7
-2024-05-30T16:11:34.068-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -&gt; org.hibernate.type.BasicTypeReference@6704df84
-2024-05-30T16:11:34.070-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -&gt; org.hibernate.type.BasicTypeReference@6704df84
-2024-05-30T16:11:34.075-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -&gt; org.hibernate.type.BasicTypeReference@1412682c
-2024-05-30T16:11:34.078-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -&gt; org.hibernate.type.BasicTypeReference@1412682c
-2024-05-30T16:11:34.078-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@53bb71e5
-2024-05-30T16:11:34.079-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@54a056e4
-2024-05-30T16:11:34.079-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -&gt; org.hibernate.type.BasicTypeReference@15994b0b
-2024-05-30T16:11:34.080-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -&gt; org.hibernate.type.BasicTypeReference@15994b0b
-2024-05-30T16:11:34.083-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeUtc -&gt; org.hibernate.type.BasicTypeReference@12cd129c
-2024-05-30T16:11:34.087-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@1a717d79
-2024-05-30T16:11:34.090-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@4cb00fa5
-2024-05-30T16:11:34.090-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -&gt; org.hibernate.type.BasicTypeReference@13aed42b
-2024-05-30T16:11:34.090-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -&gt; org.hibernate.type.BasicTypeReference@13aed42b
-2024-05-30T16:11:34.090-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@698d6d30
-2024-05-30T16:11:34.094-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@78065fcd
-2024-05-30T16:11:34.099-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -&gt; org.hibernate.type.BasicTypeReference@3407aa4f
-2024-05-30T16:11:34.100-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -&gt; org.hibernate.type.BasicTypeReference@3407aa4f
-2024-05-30T16:11:34.100-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -&gt; org.hibernate.type.BasicTypeReference@51ed2f68
-2024-05-30T16:11:34.100-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -&gt; org.hibernate.type.BasicTypeReference@51ed2f68
-2024-05-30T16:11:34.100-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -&gt; org.hibernate.type.BasicTypeReference@538b3c88
-2024-05-30T16:11:34.100-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -&gt; org.hibernate.type.BasicTypeReference@538b3c88
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -&gt; org.hibernate.type.BasicTypeReference@538b3c88
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -&gt; org.hibernate.type.BasicTypeReference@19b9f903
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -&gt; org.hibernate.type.BasicTypeReference@19b9f903
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -&gt; org.hibernate.type.BasicTypeReference@19b9f903
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -&gt; org.hibernate.type.BasicTypeReference@10e56da9
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -&gt; org.hibernate.type.BasicTypeReference@28cb86b2
-2024-05-30T16:11:34.102-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration instant -&gt; org.hibernate.type.BasicTypeReference@22ae905f
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -&gt; org.hibernate.type.BasicTypeReference@22ae905f
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid -&gt; org.hibernate.type.BasicTypeReference@748904e8
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -&gt; org.hibernate.type.BasicTypeReference@748904e8
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -&gt; org.hibernate.type.BasicTypeReference@748904e8
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -&gt; org.hibernate.type.BasicTypeReference@4fbaa7f5
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -&gt; org.hibernate.type.BasicTypeReference@3b3056a6
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -&gt; org.hibernate.type.BasicTypeReference@6d4a05f7
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -&gt; org.hibernate.type.BasicTypeReference@6d4a05f7
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -&gt; org.hibernate.type.BasicTypeReference@51d8f2f2
-2024-05-30T16:11:34.103-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Currency -&gt; org.hibernate.type.BasicTypeReference@51d8f2f2
-2024-05-30T16:11:34.108-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -&gt; org.hibernate.type.BasicTypeReference@51d8f2f2
-2024-05-30T16:11:34.108-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -&gt; org.hibernate.type.BasicTypeReference@4b476233
-2024-05-30T16:11:34.109-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -&gt; org.hibernate.type.BasicTypeReference@4b476233
-2024-05-30T16:11:34.109-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -&gt; org.hibernate.type.BasicTypeReference@72fb989b
-2024-05-30T16:11:34.109-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.io.Serializable -&gt; org.hibernate.type.BasicTypeReference@72fb989b
-2024-05-30T16:11:34.109-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -&gt; org.hibernate.type.BasicTypeReference@4f235e8e
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -&gt; org.hibernate.type.BasicTypeReference@4f235e8e
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZoneOffset -&gt; org.hibernate.type.BasicTypeReference@597a7afa
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZoneOffset -&gt; org.hibernate.type.BasicTypeReference@597a7afa
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -&gt; org.hibernate.type.BasicTypeReference@29dcdd1c
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -&gt; org.hibernate.type.BasicTypeReference@29dcdd1c
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration vector -&gt; org.hibernate.type.BasicTypeReference@7cdb7fc
-2024-05-30T16:11:34.110-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -&gt; org.hibernate.type.BasicTypeReference@524f5ea5
-2024-05-30T16:11:34.122-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -&gt; org.hibernate.type.JavaObjectType@2b170932
-2024-05-30T16:11:34.123-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -&gt; org.hibernate.type.JavaObjectType@2b170932
-2024-05-30T16:11:34.125-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration null -&gt; org.hibernate.type.NullType@439d545c
-2024-05-30T16:11:34.125-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -&gt; org.hibernate.type.BasicTypeReference@5a3cf824
-2024-05-30T16:11:34.125-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -&gt; org.hibernate.type.BasicTypeReference@7c2b6acb
-2024-05-30T16:11:34.125-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -&gt; org.hibernate.type.BasicTypeReference@28367da7
-2024-05-30T16:11:34.125-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -&gt; org.hibernate.type.BasicTypeReference@1a0f349
-2024-05-30T16:11:34.126-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -&gt; org.hibernate.type.BasicTypeReference@3c60c681
-2024-05-30T16:11:34.126-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_time -&gt; org.hibernate.type.BasicTypeReference@1b3a9ef4
-2024-05-30T16:11:34.128-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -&gt; org.hibernate.type.BasicTypeReference@7a1371
-2024-05-30T16:11:34.130-06:00 DEBUG 60122 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -&gt; org.hibernate.type.BasicTypeReference@6c6928c
-2024-05-30T16:11:34.512-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-30T16:11:34.564-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-05-30T16:11:34.582-06:00  WARN 60122 --- [manosalaobrabackend] [    Test worker] org.postgresql.util.PGPropertyUtil       : JDBC URL invalid port number: ${PROD_DB_PORT}
-2024-05-30T16:11:34.584-06:00  WARN 60122 --- [manosalaobrabackend] [    Test worker] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+2024-05-31T14:16:32.433-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] .e.m.ManosalaobrabackendApplicationTests : Starting ManosalaobrabackendApplicationTests using Java 20 with PID 20564 (started by saenb in C:\Users\saenb\OneDrive\Documents\GitHub\mao\manosalaobrabackend)
+2024-05-31T14:16:32.435-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] .e.m.ManosalaobrabackendApplicationTests : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-05-31T14:16:33.471-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-31T14:16:33.590-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 9 JPA repository interfaces.
+2024-05-31T14:16:34.362-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-31T14:16:34.457-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-05-31T14:16:34.517-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-31T14:16:34.617-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -&gt; org.hibernate.type.BasicTypeReference@74e497ae
+2024-05-31T14:16:34.617-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -&gt; org.hibernate.type.BasicTypeReference@74e497ae
+2024-05-31T14:16:34.617-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -&gt; org.hibernate.type.BasicTypeReference@74e497ae
+2024-05-31T14:16:34.617-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -&gt; org.hibernate.type.BasicTypeReference@13516600
+2024-05-31T14:16:34.617-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.NumericBooleanConverter -&gt; org.hibernate.type.BasicTypeReference@13516600
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -&gt; org.hibernate.type.BasicTypeReference@35d7386b
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.TrueFalseConverter -&gt; org.hibernate.type.BasicTypeReference@35d7386b
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -&gt; org.hibernate.type.BasicTypeReference@21002393
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration org.hibernate.type.YesNoConverter -&gt; org.hibernate.type.BasicTypeReference@21002393
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -&gt; org.hibernate.type.BasicTypeReference@718989fa
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -&gt; org.hibernate.type.BasicTypeReference@718989fa
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -&gt; org.hibernate.type.BasicTypeReference@718989fa
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -&gt; org.hibernate.type.BasicTypeReference@69f080ad
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -&gt; org.hibernate.type.BasicTypeReference@69f080ad
+2024-05-31T14:16:34.618-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -&gt; org.hibernate.type.BasicTypeReference@69f080ad
+2024-05-31T14:16:34.619-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary_wrapper -&gt; org.hibernate.type.BasicTypeReference@6568f998
+2024-05-31T14:16:34.619-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -&gt; org.hibernate.type.BasicTypeReference@6568f998
+2024-05-31T14:16:34.619-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -&gt; org.hibernate.type.BasicTypeReference@45d4421d
+2024-05-31T14:16:34.619-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -&gt; org.hibernate.type.BasicTypeReference@782fd504
+2024-05-31T14:16:34.619-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -&gt; org.hibernate.type.BasicTypeReference@782fd504
+2024-05-31T14:16:34.620-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -&gt; org.hibernate.type.BasicTypeReference@1537c744
+2024-05-31T14:16:34.620-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob_wrapper -&gt; org.hibernate.type.BasicTypeReference@37314843
+2024-05-31T14:16:34.620-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -&gt; org.hibernate.type.BasicTypeReference@50122012
+2024-05-31T14:16:34.620-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -&gt; org.hibernate.type.BasicTypeReference@50122012
+2024-05-31T14:16:34.620-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -&gt; org.hibernate.type.BasicTypeReference@50122012
+2024-05-31T14:16:34.621-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -&gt; org.hibernate.type.BasicTypeReference@569348e1
+2024-05-31T14:16:34.621-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -&gt; org.hibernate.type.BasicTypeReference@569348e1
+2024-05-31T14:16:34.621-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -&gt; org.hibernate.type.BasicTypeReference@569348e1
+2024-05-31T14:16:34.621-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -&gt; org.hibernate.type.BasicTypeReference@7db5b890
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -&gt; org.hibernate.type.BasicTypeReference@7db5b890
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -&gt; org.hibernate.type.BasicTypeReference@7db5b890
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -&gt; org.hibernate.type.BasicTypeReference@407b8435
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -&gt; org.hibernate.type.BasicTypeReference@407b8435
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -&gt; org.hibernate.type.BasicTypeReference@407b8435
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -&gt; org.hibernate.type.BasicTypeReference@1282e98
+2024-05-31T14:16:34.622-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -&gt; org.hibernate.type.BasicTypeReference@1282e98
+2024-05-31T14:16:34.623-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -&gt; org.hibernate.type.BasicTypeReference@1282e98
+2024-05-31T14:16:34.623-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -&gt; org.hibernate.type.BasicTypeReference@4db0ba1c
+2024-05-31T14:16:34.623-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -&gt; org.hibernate.type.BasicTypeReference@4db0ba1c
+2024-05-31T14:16:34.623-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -&gt; org.hibernate.type.BasicTypeReference@1d91fa02
+2024-05-31T14:16:34.623-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -&gt; org.hibernate.type.BasicTypeReference@1d91fa02
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -&gt; org.hibernate.type.BasicTypeReference@1578fa9
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -&gt; org.hibernate.type.BasicTypeReference@1578fa9
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -&gt; org.hibernate.type.BasicTypeReference@1578fa9
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character_nchar -&gt; org.hibernate.type.BasicTypeReference@414b2df5
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -&gt; org.hibernate.type.BasicTypeReference@9e30f9a
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -&gt; org.hibernate.type.BasicTypeReference@9e30f9a
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -&gt; org.hibernate.type.BasicTypeReference@1b30a54e
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -&gt; org.hibernate.type.BasicTypeReference@26275b46
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -&gt; org.hibernate.type.BasicTypeReference@26275b46
+2024-05-31T14:16:34.624-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -&gt; org.hibernate.type.BasicTypeReference@26275b46
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -&gt; org.hibernate.type.BasicTypeReference@3e9beef2
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -&gt; org.hibernate.type.BasicTypeReference@2f15a964
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -&gt; org.hibernate.type.BasicTypeReference@3111631d
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -&gt; org.hibernate.type.BasicTypeReference@2d70f312
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -&gt; org.hibernate.type.BasicTypeReference@2d70f312
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -&gt; org.hibernate.type.BasicTypeReference@4c7d7430
+2024-05-31T14:16:34.626-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -&gt; org.hibernate.type.BasicTypeReference@4c7d7430
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -&gt; org.hibernate.type.BasicTypeReference@4ea1aa52
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_char_array -&gt; org.hibernate.type.BasicTypeReference@74123110
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob_character_array -&gt; org.hibernate.type.BasicTypeReference@5ed0b4e3
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -&gt; org.hibernate.type.BasicTypeReference@79ab97fd
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_character_array -&gt; org.hibernate.type.BasicTypeReference@3a9b41a0
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob_char_array -&gt; org.hibernate.type.BasicTypeReference@5fe46d52
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -&gt; org.hibernate.type.BasicTypeReference@448ade1
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -&gt; org.hibernate.type.BasicTypeReference@448ade1
+2024-05-31T14:16:34.627-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -&gt; org.hibernate.type.BasicTypeReference@21f9c6ea
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -&gt; org.hibernate.type.BasicTypeReference@21f9c6ea
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -&gt; org.hibernate.type.BasicTypeReference@418f0534
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -&gt; org.hibernate.type.BasicTypeReference@418f0534
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -&gt; org.hibernate.type.BasicTypeReference@3dfd7eaa
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -&gt; org.hibernate.type.BasicTypeReference@3dfd7eaa
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -&gt; org.hibernate.type.BasicTypeReference@7c9beb51
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -&gt; org.hibernate.type.BasicTypeReference@7c9beb51
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@133aacbe
+2024-05-31T14:16:34.628-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@2aa5bd48
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -&gt; org.hibernate.type.BasicTypeReference@7cfb8e98
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -&gt; org.hibernate.type.BasicTypeReference@7cfb8e98
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeUtc -&gt; org.hibernate.type.BasicTypeReference@5f193335
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@19002b34
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@1ec88aa1
+2024-05-31T14:16:34.629-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -&gt; org.hibernate.type.BasicTypeReference@3e6748ae
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -&gt; org.hibernate.type.BasicTypeReference@3e6748ae
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithTimezone -&gt; org.hibernate.type.BasicTypeReference@28f154cc
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTimeWithoutTimezone -&gt; org.hibernate.type.BasicTypeReference@3030836d
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -&gt; org.hibernate.type.BasicTypeReference@6af78a48
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -&gt; org.hibernate.type.BasicTypeReference@6af78a48
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -&gt; org.hibernate.type.BasicTypeReference@6ed18d80
+2024-05-31T14:16:34.630-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -&gt; org.hibernate.type.BasicTypeReference@6ed18d80
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -&gt; org.hibernate.type.BasicTypeReference@4c24f3a2
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -&gt; org.hibernate.type.BasicTypeReference@4c24f3a2
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -&gt; org.hibernate.type.BasicTypeReference@4c24f3a2
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -&gt; org.hibernate.type.BasicTypeReference@783b3aa0
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -&gt; org.hibernate.type.BasicTypeReference@783b3aa0
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -&gt; org.hibernate.type.BasicTypeReference@783b3aa0
+2024-05-31T14:16:34.631-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -&gt; org.hibernate.type.BasicTypeReference@2ec85a25
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -&gt; org.hibernate.type.BasicTypeReference@4c176ff1
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration instant -&gt; org.hibernate.type.BasicTypeReference@27c53c32
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -&gt; org.hibernate.type.BasicTypeReference@27c53c32
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid -&gt; org.hibernate.type.BasicTypeReference@68aec50
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -&gt; org.hibernate.type.BasicTypeReference@68aec50
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration pg-uuid -&gt; org.hibernate.type.BasicTypeReference@68aec50
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -&gt; org.hibernate.type.BasicTypeReference@6aff97d6
+2024-05-31T14:16:34.632-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -&gt; org.hibernate.type.BasicTypeReference@1d60059f
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -&gt; org.hibernate.type.BasicTypeReference@134a8ead
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -&gt; org.hibernate.type.BasicTypeReference@134a8ead
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -&gt; org.hibernate.type.BasicTypeReference@427308f8
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Currency -&gt; org.hibernate.type.BasicTypeReference@427308f8
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -&gt; org.hibernate.type.BasicTypeReference@427308f8
+2024-05-31T14:16:34.633-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -&gt; org.hibernate.type.BasicTypeReference@54247647
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -&gt; org.hibernate.type.BasicTypeReference@54247647
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -&gt; org.hibernate.type.BasicTypeReference@4975dda1
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.io.Serializable -&gt; org.hibernate.type.BasicTypeReference@4975dda1
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -&gt; org.hibernate.type.BasicTypeReference@e0d1dc4
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -&gt; org.hibernate.type.BasicTypeReference@e0d1dc4
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZoneOffset -&gt; org.hibernate.type.BasicTypeReference@5463f035
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZoneOffset -&gt; org.hibernate.type.BasicTypeReference@5463f035
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -&gt; org.hibernate.type.BasicTypeReference@230232b0
+2024-05-31T14:16:34.634-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -&gt; org.hibernate.type.BasicTypeReference@230232b0
+2024-05-31T14:16:34.636-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration vector -&gt; org.hibernate.type.BasicTypeReference@44fd7ba4
+2024-05-31T14:16:34.636-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -&gt; org.hibernate.type.BasicTypeReference@22f8adc2
+2024-05-31T14:16:34.641-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -&gt; org.hibernate.type.JavaObjectType@14457a95
+2024-05-31T14:16:34.641-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -&gt; org.hibernate.type.JavaObjectType@14457a95
+2024-05-31T14:16:34.642-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration null -&gt; org.hibernate.type.NullType@105db94d
+2024-05-31T14:16:34.642-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -&gt; org.hibernate.type.BasicTypeReference@1d99ee1b
+2024-05-31T14:16:34.642-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -&gt; org.hibernate.type.BasicTypeReference@167a21b
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -&gt; org.hibernate.type.BasicTypeReference@7c0df4ab
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -&gt; org.hibernate.type.BasicTypeReference@2e362407
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -&gt; org.hibernate.type.BasicTypeReference@388be5fd
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_time -&gt; org.hibernate.type.BasicTypeReference@440ef8d
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -&gt; org.hibernate.type.BasicTypeReference@17fbfb02
+2024-05-31T14:16:34.643-06:00 DEBUG 20564 --- [manosalaobrabackend] [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -&gt; org.hibernate.type.BasicTypeReference@8f2e3e6
+2024-05-31T14:16:35.018-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-31T14:16:35.067-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-31T14:16:35.077-06:00  WARN 20564 --- [manosalaobrabackend] [    Test worker] org.postgresql.util.PGPropertyUtil       : JDBC URL invalid port number: ${PROD_DB_PORT}
+2024-05-31T14:16:35.077-06:00  WARN 20564 --- [manosalaobrabackend] [    Test worker] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
 
 java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://${PROD_DB_HOSTNAME}:${PROD_DB_PORT}/${PROD_DB_NAME}
 	at com.zaxxer.hikari.util.DriverDataSource.&lt;init&gt;(DriverDataSource.java:109) ~[HikariCP-5.1.0.jar:na]
@@ -446,10 +446,8 @@ java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jd
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[na:na]
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[na:na]
@@ -465,12 +463,12 @@ java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jd
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
 
-2024-05-30T16:11:34.605-06:00 ERROR 60122 --- [manosalaobrabackend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-2024-05-30T16:11:34.610-06:00  WARN 60122 --- [manosalaobrabackend] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-2024-05-30T16:11:34.639-06:00  INFO 60122 --- [manosalaobrabackend] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
+2024-05-31T14:16:35.097-06:00 ERROR 20564 --- [manosalaobrabackend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-05-31T14:16:35.098-06:00  WARN 20564 --- [manosalaobrabackend] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2024-05-31T14:16:35.110-06:00  INFO 20564 --- [manosalaobrabackend] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-05-30T16:11:34.680-06:00 ERROR 60122 --- [manosalaobrabackend] [    Test worker] o.s.boot.SpringApplication               : Application run failed
+2024-05-31T14:16:35.149-06:00 ERROR 20564 --- [manosalaobrabackend] [    Test worker] o.s.boot.SpringApplication               : Application run failed
 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788) ~[spring-beans-6.1.8.jar:6.1.8]
@@ -563,10 +561,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[na:na]
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[na:na]
@@ -598,7 +594,7 @@ Caused by: org.hibernate.service.spi.ServiceException: Unable to create requeste
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
-	... 107 common frames omitted
+	... 105 common frames omitted
 Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
@@ -608,11 +604,11 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-	... 122 common frames omitted
+	... 120 common frames omitted
 
-2024-05-30T16:11:34.735-06:00  WARN 60122 --- [manosalaobrabackend] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests@302da330]
+2024-05-31T14:16:35.172-06:00  WARN 20564 --- [manosalaobrabackend] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests@4de91056]
 
-java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@77cd235b testClass = com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests, locations = [], classes = [com.example.manosalaobrabackend.ManosalaobrabackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@34a75079, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2e029d61, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@acb0951, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@569bf9eb, org.springframework.boot.test.context.SpringBootTestAnnotation@4764d6be], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@71139e77 testClass = com.example.manosalaobrabackend.ManosalaobrabackendApplicationTests, locations = [], classes = [com.example.manosalaobrabackend.ManosalaobrabackendApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@732f29af, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@64ba3208, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2f17e30d, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@23bff419, org.springframework.boot.test.context.SpringBootTestAnnotation@dddee6ee], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.1.8.jar:6.1.8]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.8.jar:6.1.8]
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.8.jar:6.1.8]
@@ -683,10 +679,8 @@ java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMerge
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:94) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:89) ~[na:na]
 	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36) ~[na:na]
 	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) ~[na:na]
 	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33) ~[na:na]
@@ -723,7 +717,7 @@ Caused by: org.springframework.beans.factory.BeanCreationException: Error creati
 	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.3.0.jar:3.3.0]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.8.jar:6.1.8]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.8.jar:6.1.8]
-	... 87 common frames omitted
+	... 85 common frames omitted
 Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
@@ -741,7 +735,7 @@ Caused by: org.hibernate.service.spi.ServiceException: Unable to create requeste
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835) ~[spring-beans-6.1.8.jar:6.1.8]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784) ~[spring-beans-6.1.8.jar:6.1.8]
-	... 107 common frames omitted
+	... 105 common frames omitted
 Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
@@ -751,7 +745,7 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
-	... 122 common frames omitted
+	... 120 common frames omitted
 
 </pre>
 </span>
@@ -803,7 +797,7 @@ Unconditional classes:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at 30 may. 2024 16:11:35</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at 31 may 2024 14:16:35</p>
 </div>
 </div>
 </body>
