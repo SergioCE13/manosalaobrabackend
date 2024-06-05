@@ -47,7 +47,7 @@ public class TarjetaService {
 					tarjetaMap.setCvv(tarjeta.getCvv());
 					tarjetaMap.setBanco(tarjeta.getBanco());
 					tarjetaMap.setCompania(tarjeta.getCompania());
-					tarjetaMap.setCliente(tarjeta.getCliente());
+					//tarjetaMap.setCliente(tarjeta.getCliente());
 					return tarjetaRepository.save(tarjetaMap);
 				})
 				.orElseThrow(() -> new TarjetaNotFoundException(id));

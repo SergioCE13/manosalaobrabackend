@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -25,123 +26,121 @@ public class Direccion {
 	private int numInterior;
 	@Column(name = "num_ext", nullable = false, unique = false)
 	private int numExterior;
-	@Column(name = "municipio", nullable = false, unique = false)
-	private String municipio;
-	@Column(name = "estado", nullable = false, unique = false)
-	private String estado;
 	@Column(name = "cp", nullable = false, unique = false)
 	private int codigoPostal;
+	@Column(name = "colonia", nullable = false, unique = false)
+	private String colonia;
+	@Column(name = "municipio", nullable = false, unique = false)
+	private String municipio;
+	@Column(name = "ciudad", nullable = false, unique = false)
+	private String ciudad;
 	
-	@ManyToOne //(mappedBy = "cliente", cascade = cascade = CascadeType.ALL, orphanRemoval = true)
+	// ----------------------- Se declaran las relaciones de la entidad Direccion
+	@ManyToOne
+	@JoinColumn(name = "cliente_correo", referencedColumnName = "correo")
 	@JsonBackReference
 	private Cliente cliente;
 	
-	
-	// Constructor vacío
 	public Direccion() {
 	}
 
-	//Constructor completo
-	public Direccion(Long id, String calle, int numInterior, int numExterior, String municipio, String estado,
-			int codigoPostal) {
+	public Direccion(Long id, String calle, int numInterior, int numExterior, int codigoPostal, String colonia,
+			String municipio, String ciudad, Cliente cliente) {
 		this.id = id;
 		this.calle = calle;
 		this.numInterior = numInterior;
 		this.numExterior = numExterior;
-		this.municipio = municipio;
-		this.estado = estado;
 		this.codigoPostal = codigoPostal;
+		this.colonia = colonia;
+		this.municipio = municipio;
+		this.ciudad = ciudad;
+		this.cliente = cliente;
 	}
 
-// Getters y Setters
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getCalle() {
 		return calle;
 	}
-
 
 	public void setCalle(String calle) {
 		this.calle = calle;
 	}
 
-
 	public int getNumInterior() {
 		return numInterior;
 	}
-
 
 	public void setNumInterior(int numInterior) {
 		this.numInterior = numInterior;
 	}
 
-
 	public int getNumExterior() {
 		return numExterior;
 	}
-
 
 	public void setNumExterior(int numExterior) {
 		this.numExterior = numExterior;
 	}
 
-
-	public String getMunicipio() {
-		return municipio;
-	}
-
-
-	public void setMunicipio(String municipio) {
-		this.municipio = municipio;
-	}
-
-
-	public String getEstado() {
-		return estado;
-	}
-
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-
 	public int getCodigoPostal() {
 		return codigoPostal;
 	}
-
 
 	public void setCodigoPostal(int codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 
-// Método toString para imprimir la información de las direcciones
+	public String getColonia() {
+		return colonia;
+	}
+
+	public void setColonia(String colonia) {
+		this.colonia = colonia;
+	}
+
+	public String getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Direccion [id=").append(id).append(", calle=").append(calle).append(", numInterior=")
-				.append(numInterior).append(", numExterior=").append(numExterior).append(", municipio=")
-				.append(municipio).append(", estado=").append(estado).append(", codigoPostal=").append(codigoPostal)
-				.append("]");
-		return builder.toString();
+		return "Direccion [id=" + id + ", calle=" + calle + ", numInterior=" + numInterior + ", numExterior="
+				+ numExterior + ", codigoPostal=" + codigoPostal + ", colonia=" + colonia + ", municipio=" + municipio
+				+ ", ciudad=" + ciudad + ", cliente=" + cliente + "]";
 	}
 
-
-	//Método hashCode para calcular el valor hash de los objetos
 	@Override
 	public int hashCode() {
-		return Objects.hash(calle, codigoPostal, estado, id, municipio, numExterior, numInterior);
+		return Objects.hash(calle, ciudad, cliente, codigoPostal, colonia, id, municipio, numExterior, numInterior);
 	}
 
-	//Método equals para verificar que no existen objetos iguales.
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -151,12 +150,13 @@ public class Direccion {
 		if (getClass() != obj.getClass())
 			return false;
 		Direccion other = (Direccion) obj;
-		return Objects.equals(calle, other.calle) && codigoPostal == other.codigoPostal
-				&& Objects.equals(estado, other.estado) && Objects.equals(id, other.id)
+		return Objects.equals(calle, other.calle) && Objects.equals(ciudad, other.ciudad)
+				&& Objects.equals(cliente, other.cliente) && codigoPostal == other.codigoPostal
+				&& Objects.equals(colonia, other.colonia) && Objects.equals(id, other.id)
 				&& Objects.equals(municipio, other.municipio) && numExterior == other.numExterior
 				&& numInterior == other.numInterior;
 	}
-	
+
 	
 	
 }

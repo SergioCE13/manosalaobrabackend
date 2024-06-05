@@ -28,6 +28,7 @@ public class ProductoService {
 		return productoRepository.findAll();
 	}
 
+	
 	public String postProducto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo, String categoria, String descripcion, String tecnica, int stock, String infoAdicional, MultipartFile file) {
         try {
             // Convertir el archivo a un array de bytes
@@ -65,8 +66,30 @@ public class ProductoService {
 				.orElseThrow(() -> new ProductoNotFoundException(id));
 	}
 	
+	public Producto putProducto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo, String categoria, String descripcion, String tecnica, int stock, String infoAdicional, MultipartFile file) {
+		Producto productoEdit = productoRepository.findById(nombre)
+				.orElseThrow(() -> new ProductoNotFoundException(nombre));
+			try {
+				byte[] foto = file.getBytes();
+				productoEdit.setPrecio(precio);
+				productoEdit.setMedidaAlto(medidaAlto);
+				productoEdit.setMedidaAncho(medidaAncho);
+				productoEdit.setMedidaLargo(medidaLargo);
+				productoEdit.setCategoria(categoria);
+				productoEdit.setDescripcion(descripcion);
+				productoEdit.setTecnica(tecnica);
+				productoEdit.setStock(stock);
+				productoEdit.setInfoAdicional(infoAdicional);
+				productoEdit.setFoto(foto);
+			}catch(IOException e) {
+				e.getMessage();
+			}
+			return productoRepository.save(productoEdit);
+	}
 	
-	//Debe de crear la excepción producto NotFoundException
+	public void deleteProducto(String id) {
+		productoRepository.deleteById(id);
+	}
 	
 }
 

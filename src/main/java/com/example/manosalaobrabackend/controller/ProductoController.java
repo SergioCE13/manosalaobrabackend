@@ -3,9 +3,11 @@ package com.example.manosalaobrabackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,17 +55,25 @@ public class ProductoController {
 		return productoService.getById(id);
 	}
 	
-	/*
-	 * //Se crea la excepción
-	@GetMapping ("/{name}")
-	public ResponseEntity<Producto> getProductoById (@PathVariable String name){
-	Producto producto = productoService.getById(name);
-	if (name == null) {
-		throw new ProductoNotFoundException ("Producto not found with name" + name);
-		}
-		return new ResponseEntity <>(producto, HttpStatus.OK);
+	@DeleteMapping("/{id}")
+	public void dropProducto(@PathVariable (name = "id") String id) {
+		productoService.deleteProducto(id);
 	}
-	 * */
-               
+	
+	@PutMapping("/{nombre}")
+	public Producto editProducto(@PathVariable (name = "nombre") String nombre,
+			@RequestParam("precio") double precio,
+			@RequestParam("medida_alto") double medidaAlto,
+			@RequestParam("medida_ancho") double medidaAncho,
+			@RequestParam("medida_largo") double medidaLargo,
+			@RequestParam("categoria") String categoria,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam("tecnica") String tecnica,
+			@RequestParam("stock") int stock,
+			@RequestParam("info_adicional") String infoAdicional,
+			@RequestParam("foto") MultipartFile file) {
+		return productoService.putProducto(nombre, precio, medidaAlto, medidaAncho, medidaLargo, categoria, descripcion, tecnica, stock, infoAdicional, file);
+	}
+	
 }
 	

@@ -30,10 +30,26 @@ public class DireccionService {
 		return direccionRepository.save(nuevaDireccion);
 	}
 	
-	
 	public Direccion getById(Long id) {
 		return direccionRepository.findById(id)
 				.orElseThrow(()->new DireccionNotFoundException(id));
+	}
+	
+	public void deleteDireccion(Long id) {
+		direccionRepository.deleteById(id);
+	}
+	
+	public Direccion putDireccion(Direccion direccion, Long id) {
+		Direccion direccionput  = direccionRepository.findById(id)
+				.orElseThrow(() -> new DireccionNotFoundException(id));
+		direccionput.setCalle(direccion.getCalle());
+		direccionput.setNumInterior(direccion.getNumInterior());
+		direccionput.setNumExterior(direccion.getNumExterior());
+		direccionput.setCodigoPostal(direccion.getCodigoPostal());
+		direccionput.setColonia(direccion.getColonia());
+		direccionput.setMunicipio(direccion.getMunicipio());
+		direccionput.setCiudad(direccion.getCiudad());
+		return direccionRepository.save(direccionput);
 	}
 
 }

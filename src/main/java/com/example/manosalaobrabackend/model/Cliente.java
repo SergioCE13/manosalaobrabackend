@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,25 +35,19 @@ public class Cliente {
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
-	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor:
-	
+	// ------------------- Declaramos las relaciones de la entidad Cliente
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
-	public List<Tarjeta> tarjetas;
-	
-	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
-	//@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-	//public List<Direccion> direcciones;
+	private List<Direccion> direcciones;
 	
 	
 	//Declaramos un construtor para JPA
 	public Cliente() {
 	}
-	
-	
+
 
 	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String genero,
-			Long telefono, String fechaNacimiento, String password, List<Tarjeta> tarjetas) {
+			Long telefono, String fechaNacimiento, String password, List<Direccion> direcciones) {
 		this.correo = correo;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
@@ -60,104 +56,114 @@ public class Cliente {
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.password = password;
-		this.tarjetas = tarjetas;
+		this.direcciones = direcciones;
 	}
-
 
 
 	public String getCorreo() {
 		return correo;
 	}
 
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApellidoPaterno() {
 		return apellidoPaterno;
 	}
 
+
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
+
 
 	public String getApellidoMaterno() {
 		return apellidoMaterno;
 	}
 
+
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
+
 
 	public String getGenero() {
 		return genero;
 	}
 
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
 
 	public Long getTelefono() {
 		return telefono;
 	}
 
+
 	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
+
 
 	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
+
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public List<Tarjeta> getTarjetas() {
-		return tarjetas;
+
+	public List<Direccion> getDirecciones() {
+		return direcciones;
 	}
 
-	public void setTarjetas(List<Tarjeta> tarjetas) {
-		this.tarjetas = tarjetas;
-	}
 
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
 
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [correo=").append(correo).append(", nombre=").append(nombre)
-				.append(", apellidoPaterno=").append(apellidoPaterno).append(", apellidoMaterno=")
-				.append(apellidoMaterno).append(", genero=").append(genero).append(", telefono=").append(telefono)
-				.append(", fechaNacimiento=").append(fechaNacimiento).append(", password=").append(password)
-				.append(", tarjetas=").append(tarjetas).append("]");
-		return builder.toString();
+		return "Cliente [correo=" + correo + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
+				+ ", apellidoMaterno=" + apellidoMaterno + ", genero=" + genero + ", telefono=" + telefono
+				+ ", fechaNacimiento=" + fechaNacimiento + ", password=" + password + ", direcciones=" + direcciones
+				+ "]";
 	}
-
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, genero, nombre, password,
-				tarjetas, telefono);
+		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, direcciones, fechaNacimiento, genero, nombre,
+				password, telefono);
 	}
-
 
 
 	@Override
@@ -171,10 +177,12 @@ public class Cliente {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(apellidoMaterno, other.apellidoMaterno)
 				&& Objects.equals(apellidoPaterno, other.apellidoPaterno) && Objects.equals(correo, other.correo)
+				&& Objects.equals(direcciones, other.direcciones)
 				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
-				&& Objects.equals(tarjetas, other.tarjetas) && Objects.equals(telefono, other.telefono);
+				&& Objects.equals(telefono, other.telefono);
 	}
 
+	
 	
 }

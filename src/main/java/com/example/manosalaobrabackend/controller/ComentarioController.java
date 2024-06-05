@@ -1,51 +1,58 @@
 package com.example.manosalaobrabackend.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.manosalaobrabackend.model.Comentario;
 import com.example.manosalaobrabackend.service.ComentarioService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/mao/comentario")
 public class ComentarioController {
 
+	
     @Autowired
     private ComentarioService comentarioService;
 
+    
     @GetMapping
     public List<Comentario> getAllComentarios() {
         return comentarioService.getAllComentarios();
     }
-
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Comentario> getComentarioById(@PathVariable Integer id) {
-        Optional<Comentario> comentario = comentarioService.getComentarioById(id);
-        return comentario.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public Comentario getComentario(@PathVariable(name = "id") Long id){
+    	return comentarioService.getById(id);
     }
-
+    
     @PostMapping
-    public Comentario createComentario(@RequestBody Comentario comentario) {
-        return comentarioService.saveComentario(comentario);
+    public Comentario newComentario(@RequestBody Comentario comentario) {
+        return comentarioService.postComentario(comentario);
     }
+    
+	@DeleteMapping("/{id}") // localhost:8081/api/pandevs/user/5 <-- llaves hacen que el path sea variable
+	public void dropComentario(@PathVariable(name = "id") Long id) { //pathvariable ayuda a que se reciba cualquier tipo de dato que compagine con id
+		comentarioService.deleteComentario(id);
+	}
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Comentario> updateComentario(@PathVariable Integer id, @RequestBody Comentario comentario) {
-        Optional<Comentario> existingComentario = comentarioService.getComentarioById(id);
-        if (existingComentario.isPresent()) {
-            comentario.setId_comentario(id);
-            return ResponseEntity.ok(comentarioService.updateComentario(comentario));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @PatchMapping("/{id}") // Anotación para indicar que este método maneja solicitudes PATCH en la URL específica
+    // Este método maneja las solicitudes PATCH enviadas a la URL /{id}, donde {id} es el identificador del comentario a actualizar
+    public Comentario patchComentario(@PathVariable Long id, @RequestBody Comentario comentarioDetails) {
+        // Retorna el resultado de la llamada al método patchComentario del servicio comentarioService
+        return comentarioService.patchComentario(id, comentarioDetails);
+        // Se pasa el id del comentario y los detalles del comentario recibidos en la solicitud al método del servicio para su procesamiento
     }
+    
+    
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteComentario(@PathVariable Integer id) {
-        comentarioService.deleteComentario(id);
-        return ResponseEntity.noContent().build();
-    }
+
 }

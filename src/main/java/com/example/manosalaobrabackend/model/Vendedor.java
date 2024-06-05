@@ -31,6 +31,7 @@ public class Vendedor {
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
+	
 	//Declaramos el constructor vacío que necesita JPA para crear cualquier objeto.
 	public Vendedor() {
 	}
