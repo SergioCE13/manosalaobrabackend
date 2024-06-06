@@ -52,4 +52,9 @@ public class DireccionController {
 	public Direccion updateDireccion(@RequestBody Direccion direccion, @PathVariable(name = "id") Long id) {
 		return direccionService.putDireccion(direccion, id);
 	}
+	
+	@GetMapping("/cliente/{correo}")
+	public List<Direccion> direccionesCliente(@PathVariable(name = "correo") String correo){
+		return direccionService.getByCliente(correo);
+	}
 }

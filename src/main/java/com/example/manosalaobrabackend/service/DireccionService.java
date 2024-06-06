@@ -51,5 +51,9 @@ public class DireccionService {
 		direccionput.setCiudad(direccion.getCiudad());
 		return direccionRepository.save(direccionput);
 	}
+	
+	public List<Direccion> getByCliente(String correo){
+		return direccionRepository.findByCorreo(correo);
+	}
 
 }
