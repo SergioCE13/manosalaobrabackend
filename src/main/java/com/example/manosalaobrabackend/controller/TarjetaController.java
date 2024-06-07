@@ -50,4 +50,10 @@ public class TarjetaController {
 		tarjetaService.deleteTarjeta(id);
 	}
 	
+	@GetMapping("/cliente/{correo}")
+	public List<Tarjeta> getClienteTarjeta(@PathVariable(name = "correo") String correo){
+		return tarjetaService.getByCliente(correo);
+	}
+	
+	
 }

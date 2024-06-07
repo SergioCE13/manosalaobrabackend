@@ -53,6 +53,8 @@ public class TarjetaService {
 				.orElseThrow(() -> new TarjetaNotFoundException(id));
 	}
 	
-	
+	public List<Tarjeta> getByCliente(String correo){
+		return tarjetaRepository.findByCorreo(correo);
+	}
 	
 }

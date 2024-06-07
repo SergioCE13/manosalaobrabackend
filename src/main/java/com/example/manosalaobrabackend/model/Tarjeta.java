@@ -3,9 +3,13 @@ package com.example.manosalaobrabackend.model;
 import java.util.Date;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -27,25 +31,30 @@ public class Tarjeta{
 	private String banco;
 	@Column(name="compania",length=16, nullable=false, unique=false)
 	private String compania;
-	///-----------------------!!!!! IMPORTANTE AÑADIR EL TIPO DE TARJETA DE CREDITO.
+	@Column(name = "tipo", length = 20, nullable = false, unique = false)
+	private String tipo;
+	///-----------------------!!!!! IMPORTANTE AÑADIR EL TIPO DE TARJETA DE CREDITO/DEBITO.
 	
-	//-------------- De claramos la relación ManyToOne para Tarjeta referenciando a cliente.
-	//@ManyToOne
-	//@JoinColumn(name = "id_cliente", referencedColumnName = "correo" ,nullable = false)
-	//@JsonBackReference
-	//private Cliente cliente;
+	// ----------------------- Se declaran las relaciones de la entidad Direccion
+	@ManyToOne
+	@JoinColumn(name = "cliente_correo", referencedColumnName = "correo")
+	@JsonBackReference
+	private Cliente cliente;
 
 	//----------------------  Constructores -> Equals
 	public Tarjeta() {
 	}
 
-	public Tarjeta(Long numero, String tarjetahabiente, Date fechaExpiracion, int cvv, String banco, String compania) {
+	public Tarjeta(Long numero, String tarjetahabiente, Date fechaExpiracion, int cvv, String banco, String compania,
+			String tipo, Cliente cliente) {
 		this.numero = numero;
 		this.tarjetahabiente = tarjetahabiente;
 		this.fechaExpiracion = fechaExpiracion;
 		this.cvv = cvv;
 		this.banco = banco;
 		this.compania = compania;
+		this.tipo = tipo;
+		this.cliente = cliente;
 	}
 
 	public Long getNumero() {
@@ -96,15 +105,32 @@ public class Tarjeta{
 		this.compania = compania;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public String toString() {
 		return "Tarjeta [numero=" + numero + ", tarjetahabiente=" + tarjetahabiente + ", fechaExpiracion="
-				+ fechaExpiracion + ", cvv=" + cvv + ", banco=" + banco + ", compania=" + compania + "]";
+				+ fechaExpiracion + ", cvv=" + cvv + ", banco=" + banco + ", compania=" + compania + ", tipo=" + tipo
+				+ ", cliente=" + cliente + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(banco, compania, cvv, fechaExpiracion, numero, tarjetahabiente);
+		return Objects.hash(banco, cliente, compania, cvv, fechaExpiracion, numero, tarjetahabiente, tipo);
 	}
 
 	@Override
@@ -116,10 +142,12 @@ public class Tarjeta{
 		if (getClass() != obj.getClass())
 			return false;
 		Tarjeta other = (Tarjeta) obj;
-		return Objects.equals(banco, other.banco) && Objects.equals(compania, other.compania) && cvv == other.cvv
+		return Objects.equals(banco, other.banco) && Objects.equals(cliente, other.cliente)
+				&& Objects.equals(compania, other.compania) && cvv == other.cvv
 				&& Objects.equals(fechaExpiracion, other.fechaExpiracion) && Objects.equals(numero, other.numero)
-				&& Objects.equals(tarjetahabiente, other.tarjetahabiente);
+				&& Objects.equals(tarjetahabiente, other.tarjetahabiente) && Objects.equals(tipo, other.tipo);
 	}
 
+	
 	
 }
