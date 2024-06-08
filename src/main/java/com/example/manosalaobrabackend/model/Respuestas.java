@@ -3,11 +3,15 @@ package com.example.manosalaobrabackend.model;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 //Se declara que la clase sera una entidad
@@ -29,6 +33,11 @@ public class Respuestas {
 		@Column (name = "correo", length = 45, nullable = false, unique =false )
 		private String correo;
 	
+		@ManyToOne
+		@JoinColumn(name = "id_comentario", referencedColumnName = "correo", nullable = false)
+		@JsonBackReference
+		private Comentario comentario;
+		
 		//Se declara un constructor vacio para Jpa
 		public Respuestas () {}
 		
