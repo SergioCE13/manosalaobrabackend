@@ -1,13 +1,22 @@
 package com.example.manosalaobrabackend.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,7 +40,24 @@ public class Comentario {
     @Column(nullable = true, unique = false, columnDefinition = "INT DEFAULT 0")
     private int megusta;
     
-
+    // --------------------------------- Definimos las relaciones de la entidad comentario.
+    // 1. Relación ManyToOne con cliente
+    @ManyToOne
+    @JoinColumn(name = "cliente", referencedColumnName = "correo")
+    @JsonBackReference
+    private Cliente cliente;
+    
+    // 2. Relación OneToMany con respuestas.
+    @OneToMany(mappedBy = "comentario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Respuestas> respuestas;
+    
+    // 3. Relación ManyToOne con producto.
+    @ManyToOne
+    @JoinColumn(name = "producto", referencedColumnName = "nombre")
+    @JsonBackReference
+    private Producto producto;
+    
 	public Comentario() {
 	}
 

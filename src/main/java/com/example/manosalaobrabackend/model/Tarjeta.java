@@ -35,11 +35,15 @@ public class Tarjeta{
 	private String tipo;
 	///-----------------------!!!!! IMPORTANTE AÑADIR EL TIPO DE TARJETA DE CREDITO/DEBITO.
 	
-	// ----------------------- Se declaran las relaciones de la entidad Direccion
+	// ----------------------- Declarando las relaciónes de la entidad Tarjeta
+	// 1. Relación ManyToOne con cliente
 	@ManyToOne
 	@JoinColumn(name = "cliente_correo", referencedColumnName = "correo")
 	@JsonBackReference
 	private Cliente cliente;
+
+	// 2. Relación *implicita*  ManyToOne con Compra
+
 
 	//----------------------  Constructores -> Equals
 	public Tarjeta() {

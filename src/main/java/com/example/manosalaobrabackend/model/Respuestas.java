@@ -3,11 +3,15 @@ package com.example.manosalaobrabackend.model;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 //Se declara que la clase sera una entidad
@@ -28,21 +32,25 @@ public class Respuestas {
 		private Timestamp fechaHora;
 		@Column (name = "correo", length = 45, nullable = false, unique =false )
 		private String correo;
+		
+	    @ManyToOne
+	    @JoinColumn(name = "comentario", referencedColumnName = "id")
+	    @JsonBackReference
+	    private Comentario comentario;
 	
 		//Se declara un constructor vacio para Jpa
 		public Respuestas () {}
-		
-		//Se declara un constructor con todos los atributos 
-		public Respuestas(int respuestas, String cuerpo, int cantLike, Timestamp fechaHora, String correo) {
-			super();
+
+		public Respuestas(int respuestas, String cuerpo, int cantLike, Timestamp fechaHora, String correo,
+				Comentario comentario) {
 			this.respuestas = respuestas;
 			this.cuerpo = cuerpo;
 			this.cantLike = cantLike;
 			this.fechaHora = fechaHora;
 			this.correo = correo;
+			this.comentario = comentario;
 		}
 
-		//Se declaran los getters y setters
 		public int getRespuestas() {
 			return respuestas;
 		}
@@ -82,21 +90,26 @@ public class Respuestas {
 		public void setCorreo(String correo) {
 			this.correo = correo;
 		}
-		
-		//Se declara el metodo ToString para imprimir la informacion de los clientes.
+
+		public Comentario getComentario() {
+			return comentario;
+		}
+
+		public void setComentario(Comentario comentario) {
+			this.comentario = comentario;
+		}
+
 		@Override
 		public String toString() {
 			return "Respuestas [respuestas=" + respuestas + ", cuerpo=" + cuerpo + ", cantLike=" + cantLike
-					+ ", fechaHora=" + fechaHora + ", correo=" + correo + "]";
+					+ ", fechaHora=" + fechaHora + ", correo=" + correo + ", comentario=" + comentario + "]";
 		}
 
-		//Se declara el metodo hashCode para verificar el valor hash de los objetos.
 		@Override
 		public int hashCode() {
-			return Objects.hash(cantLike, correo, cuerpo, fechaHora, respuestas);
+			return Objects.hash(cantLike, comentario, correo, cuerpo, fechaHora, respuestas);
 		}
-		
-		//Se declara el metodo equals para verificar el valor equals de los objetos.
+
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -106,21 +119,10 @@ public class Respuestas {
 			if (getClass() != obj.getClass())
 				return false;
 			Respuestas other = (Respuestas) obj;
-			return cantLike == other.cantLike && Objects.equals(correo, other.correo)
-					&& Objects.equals(cuerpo, other.cuerpo) && Objects.equals(fechaHora, other.fechaHora)
-					&& respuestas == other.respuestas;
+			return cantLike == other.cantLike && Objects.equals(comentario, other.comentario)
+					&& Objects.equals(correo, other.correo) && Objects.equals(cuerpo, other.cuerpo)
+					&& Objects.equals(fechaHora, other.fechaHora) && respuestas == other.respuestas;
 		}
-		
-			
-		
-		
-		
-		
-		
-		
-		
-
-		
 		
 		
 }

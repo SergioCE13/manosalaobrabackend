@@ -35,11 +35,13 @@ public class Direccion {
 	@Column(name = "ciudad", nullable = false, unique = false)
 	private String ciudad;
 	
-	// ----------------------- Se declaran las relaciones de la entidad Direccion
+	// ----------------------- Declarando las relaciones de la entidad Dirección
+	// 1. Relación ManyToOne con cliente
 	@ManyToOne
 	@JoinColumn(name = "cliente_correo", referencedColumnName = "correo")
 	@JsonBackReference
 	private Cliente cliente;
+	//2. Relación OneToOne con compra.
 	
 	public Direccion() {
 	}
