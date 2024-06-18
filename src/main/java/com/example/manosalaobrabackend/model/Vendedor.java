@@ -1,10 +1,16 @@
 package com.example.manosalaobrabackend.model;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity // Declaramos que esta clase se maneja como una entidad
@@ -31,13 +37,21 @@ public class Vendedor {
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
 	
+	@Lob 
+	@Column (name = "foto", nullable = true, length = 1048576)
+	private byte[] foto;
+	
+	@OneToMany
+	@JsonManagedReference
+	List <Producto> productos;
 	
 	//Declaramos el constructor vacío que necesita JPA para crear cualquier objeto.
 	public Vendedor() {
 	}
 
+
 	public Vendedor(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String genero,
-			Long telefono, String fechaNacimiento, String password) {
+			Long telefono, String fechaNacimiento, String password, byte[] foto) {
 		this.correo = correo;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
@@ -46,88 +60,119 @@ public class Vendedor {
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.password = password;
+		this.foto = foto;
 	}
+
 
 	public String getCorreo() {
 		return correo;
 	}
 
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApellidoPaterno() {
 		return apellidoPaterno;
 	}
 
+
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
+
 
 	public String getApellidoMaterno() {
 		return apellidoMaterno;
 	}
 
+
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
+
 
 	public String getGenero() {
 		return genero;
 	}
 
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
 
 	public Long getTelefono() {
 		return telefono;
 	}
 
+
 	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
+
 
 	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
+
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
+	public byte[] getFoto() {
+		return foto;
+	}
+
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Vendedor [correo=").append(correo).append(", nombre=").append(nombre)
-				.append(", apellidoPaterno=").append(apellidoPaterno).append(", apellidoMaterno=")
-				.append(apellidoMaterno).append(", genero=").append(genero).append(", telefono=").append(telefono)
-				.append(", fechaNacimiento=").append(fechaNacimiento).append(", password=").append(password)
-				.append("]");
-		return builder.toString();
+		return "Vendedor [correo=" + correo + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
+				+ ", apellidoMaterno=" + apellidoMaterno + ", genero=" + genero + ", telefono=" + telefono
+				+ ", fechaNacimiento=" + fechaNacimiento + ", password=" + password + ", foto=" + Arrays.toString(foto)
+				+ "]";
 	}
+
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, genero, nombre, password,
-				telefono);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(foto);
+		result = prime * result + Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, genero,
+				nombre, password, telefono);
+		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -140,11 +185,11 @@ public class Vendedor {
 		Vendedor other = (Vendedor) obj;
 		return Objects.equals(apellidoMaterno, other.apellidoMaterno)
 				&& Objects.equals(apellidoPaterno, other.apellidoPaterno) && Objects.equals(correo, other.correo)
-				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
-				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
-				&& Objects.equals(telefono, other.telefono);
+				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Arrays.equals(foto, other.foto)
+				&& Objects.equals(genero, other.genero) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(password, other.password) && Objects.equals(telefono, other.telefono);
 	}
 
-	
+
 	
 }
