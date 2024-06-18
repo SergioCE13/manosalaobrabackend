@@ -1,12 +1,19 @@
 package com.example.manosalaobrabackend.model;
 
 import java.util.Objects;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity // Declaramos que esta clase será una entidad
@@ -21,6 +28,22 @@ public class Carrito {
     @Column(name = "num_productos", nullable = false)
     private int numProductos;
 
+    // ----------------------------------- Definimos las relaciones de la entidad Carrito.
+    //1. Relación OneToOne con cliente.
+    @OneToOne
+    @JoinColumn(name = "correo_cliente")
+    @JsonBackReference
+    private Cliente cliente;
+    
+    //2. Relación ManyToMany con producto.
+    @ManyToMany
+    @JoinTable(
+    		name = "productos_en_carrito",
+    		joinColumns = @JoinColumn(name = "id_carrito")
+    		)
+    private Set<Producto> producto;
+    
+    
     // Constructor para JPA
     public Carrito() {
     }

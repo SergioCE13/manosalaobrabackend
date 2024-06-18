@@ -2,11 +2,18 @@ package com.example.manosalaobrabackend.model;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity //Indicamos que esta clase es una OMR 
@@ -42,6 +49,32 @@ public class Producto {
 	@Column(name = "foto", nullable = true, length = 1048576) // la longitud permite imagenes de hasta 1 MB 
 	private byte[] foto;
 	
+	//------------------------------------- Definimos las relaciones de la entidad Producto
+	// 1. Relación ManyToOne con vendedor.
+	@ManyToOne
+	@JsonBackReference
+	@JoinColumn(name = "vendedor", referencedColumnName = "correo") 
+	private Vendedor vendedor;
+	
+	//2. Relación *implícita* OneToMany con comentario.
+	//3. Relación *implicita* OneToMany con carrito.
+	//4. Relación ManyToMany con cliente -- para generar Favoritos --.
+	@ManyToMany
+	@JoinTable(
+			name = "favoritos",
+			joinColumns = @JoinColumn(name = "nombre_producto", referencedColumnName = "nombre", columnDefinition = "VARCHAR(45) NOT NULL"),
+			inverseJoinColumns = @JoinColumn(name = "coreo_cliente", referencedColumnName = "correo", columnDefinition = "VARCHAR(45) NOT NULL")
+			)
+	private Set<Cliente> cliente;
+	
+	//5. Relación ManyToMany con compra.
+	@ManyToMany
+	@JoinTable(
+			name = "producto_comprado",
+			joinColumns = @JoinColumn(name = "nombre_producto"),
+			inverseJoinColumns = @JoinColumn(name = "correo_cliente")
+			)
+	private Set<Compra> compra;
 	
 	//Declaramos el constructor que necesita JPA para construir cualquier objeto.
 	public Producto() {
