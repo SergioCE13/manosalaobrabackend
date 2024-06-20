@@ -24,6 +24,7 @@ public class VendedorService {
 		return vendedorRepository.findAll();
 	}
 	
+
 	public String postVendedor(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, Long telefono, String fechaNacimiento, String password, MultipartFile file) {
 		try {
 			// Convertir el archivo a un array de bytes
@@ -52,6 +53,7 @@ public class VendedorService {
 			// Manejo de excepciones si ocurre un error al guardar el registro en la base de datos
 			return "Error al guardar el registro: " + e.getMessage();
 		}
+
 	}
 	
 	public Vendedor getById(String correo) {
@@ -65,8 +67,10 @@ public class VendedorService {
 					vendedorMap.setNombre(vendedor.getNombre());
 					vendedorMap.setApellidoPaterno(vendedor.getApellidoPaterno());
 					vendedorMap.setApellidoMaterno(vendedor.getApellidoMaterno());
+
 					vendedorMap.setGenero(vendedor.getGenero());
 					vendedorMap.setTelefono(vendedor.getTelefono());
+
 					vendedorMap.setFechaNacimiento(vendedor.getFechaNacimiento());
 					vendedorMap.setPassword(vendedor.getPassword());
 					return vendedorRepository.save(vendedorMap);

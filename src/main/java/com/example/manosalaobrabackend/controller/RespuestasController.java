@@ -29,7 +29,7 @@ public class RespuestasController {
 	public List<Respuestas> getAllControler(){
 		return respuestasService.getAll();
 	}
-	
+
 	@PostMapping
 	public Respuestas newRespuestas (@RequestBody Respuestas respuestas) {
 		return respuestasService.postRespuestas(respuestas);
@@ -39,4 +39,5 @@ public class RespuestasController {
 	pubic Respuestas getRespuestasById(@PathVariable(name = "id") String id) {
 		return respuestasService.getById(id);
 	}*/
+
 }

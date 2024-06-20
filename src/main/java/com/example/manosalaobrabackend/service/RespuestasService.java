@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.example.manosalaobrabackend.exceptions.RespuestasNotFoundException;
+
 import com.example.manosalaobrabackend.model.Respuestas;
 import com.example.manosalaobrabackend.repository.RespuestasRepository;
 
@@ -22,6 +24,7 @@ public class RespuestasService {
 	public List<Respuestas> getAll(){
 		return respuestasRepository.findAll();
 	}
+
 	public Respuestas postRespuestas(Respuestas newRespuestas) {
 		return respuestasRepository.save(newRespuestas);
 	}
@@ -40,4 +43,5 @@ public class RespuestasService {
 	}
 	
 	
+
 }

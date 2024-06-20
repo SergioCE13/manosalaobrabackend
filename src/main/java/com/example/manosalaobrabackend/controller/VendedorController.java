@@ -19,7 +19,8 @@ import com.example.manosalaobrabackend.service.VendedorService;
 @RequestMapping("/api/mao/vendedor")
 
 public class VendedorController {
-	private VendedorService vendedorService;
+private VendedorService vendedorService;
+
 
 	@Autowired
 	public VendedorController(VendedorService vendedorService) {
@@ -33,6 +34,7 @@ public class VendedorController {
 	
 	//Mapear Post y recibir como parámetro del método una anotación @RequestBody pra vinularlo con el valor (atributos) del cuerpo del modelo
 	@PostMapping
+
 	public String newVendedor(
 			@RequestParam("correo") String correo,
 			@RequestParam("nombre") String nombre,
@@ -44,6 +46,7 @@ public class VendedorController {
 			@RequestParam("contraseña") String password,
 			@RequestParam("foto") MultipartFile file) {
 		return vendedorService.postVendedor(correo, nombre, apellidoPaterno, apellidoMaterno, genero, telefono, fechaNacimiento, password, file);
+
 	}
 	
 	@GetMapping("/{id}")

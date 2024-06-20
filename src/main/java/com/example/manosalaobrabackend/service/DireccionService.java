@@ -30,10 +30,13 @@ public class DireccionService {
 		return direccionRepository.save(nuevaDireccion);
 	}
 	
+
+
 	public Direccion getById(Long id) {
 		return direccionRepository.findById(id)
 				.orElseThrow(()->new DireccionNotFoundException(id));
 	}
+
 	
 	public void deleteDireccion(Long id) {
 		direccionRepository.deleteById(id);
@@ -55,5 +58,6 @@ public class DireccionService {
 	public List<Direccion> getByCliente(String correo){
 		return direccionRepository.findByCorreo(correo);
 	}
+
 
 }

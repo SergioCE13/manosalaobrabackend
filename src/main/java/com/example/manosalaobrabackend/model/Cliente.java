@@ -36,7 +36,7 @@ public class Cliente {
 	private String fechaNacimiento;
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
-	
+
 	// ------------------- Declaramos las relaciones de la entidad Cliente
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonManagedReference
@@ -51,6 +51,7 @@ public class Cliente {
 	private List<Compra> compras;
 	
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+
 	@JsonManagedReference
 	private List<Favorito> favoritos;
 	
@@ -87,6 +88,8 @@ public class Cliente {
 		this.password = password;
 		this.direcciones = direcciones;
 	}
+	
+	
 
 
 	public String getCorreo() {

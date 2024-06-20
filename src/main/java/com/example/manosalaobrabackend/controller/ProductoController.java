@@ -2,6 +2,8 @@ package com.example.manosalaobrabackend.controller;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.manosalaobrabackend.exceptions.ProductoNotFoundException;
 import com.example.manosalaobrabackend.model.Producto;
 import com.example.manosalaobrabackend.service.ProductoService;
+
+
+
+
 
 @RestController  // Anotación que indica que esta clase es un controlador REST de Spring.
 @RequestMapping("/api/mao/producto") // Anotación que define la url base para todas las rutas manejadas por este controlador.

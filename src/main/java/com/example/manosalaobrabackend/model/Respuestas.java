@@ -3,15 +3,19 @@ package com.example.manosalaobrabackend.model;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 //Se declara que la clase sera una entidad
@@ -32,6 +36,7 @@ public class Respuestas {
 		private Timestamp fechaHora;
 		@Column (name = "correo", length = 45, nullable = false, unique =false )
 		private String correo;
+
 		
 	    @ManyToOne
 	    @JoinColumn(name = "comentario", referencedColumnName = "id")
@@ -48,13 +53,16 @@ public class Respuestas {
 
 		public Respuestas(int respuestas, String cuerpo, int cantLike, Timestamp fechaHora, String correo,
 				Comentario comentario) {
+
 			this.respuestas = respuestas;
 			this.cuerpo = cuerpo;
 			this.cantLike = cantLike;
 			this.fechaHora = fechaHora;
 			this.correo = correo;
+
 			this.comentario = comentario;
 		}
+
 
 		public int getRespuestas() {
 			return respuestas;
@@ -96,6 +104,7 @@ public class Respuestas {
 			this.correo = correo;
 		}
 
+
 		public Comentario getComentario() {
 			return comentario;
 		}
@@ -124,11 +133,13 @@ public class Respuestas {
 			if (getClass() != obj.getClass())
 				return false;
 			Respuestas other = (Respuestas) obj;
+
 			return cantLike == other.cantLike && Objects.equals(comentario, other.comentario)
 					&& Objects.equals(correo, other.correo) && Objects.equals(cuerpo, other.cuerpo)
 					&& Objects.equals(fechaHora, other.fechaHora) && respuestas == other.respuestas;
 		}
 		
+
 		
 }
 

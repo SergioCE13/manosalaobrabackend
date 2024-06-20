@@ -10,9 +10,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -46,6 +48,7 @@ public class Producto {
 	
 	//Como un archivo de tipo BLOB que permite subir una imagen del producto
 	@Lob //Large OBject, indica que un archivo de tipo BLOB se enviara a la base de datos. (img, pdf,xsl, etc)
+
 	@Column(name = "foto", nullable = true, length = 1048576) // la longitud permite imagenes de hasta 1 MB 
 	private byte[] foto;
 	
@@ -75,13 +78,35 @@ public class Producto {
 			inverseJoinColumns = @JoinColumn(name = "correo_cliente")
 			)
 	private Set<Compra> compra;
+
 	
+	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor Muchos productos pueden tener un vendedor,y un vendedor puede tener muchos productos :
+		@ManyToOne
+		@JoinColumn (name = "vendedor")
+		public Vendedor vendedor;
+	//Con compra
+		@ManyToOne
+		@JoinColumn (name = "compra")
+		public Compra compra;
+		
+	//Con Carrito
+		@ManyToOne //Muchos productos pueden estar en un carrito
+		@JoinColumn (name = "carrito")
+		private Carrito carrito;
+		
+	//Con Wishlist
+		//@ManyToOne 
+		//@JoinColumn (name = "wishlist")
+		//private
+		
 	//Declaramos el constructor que necesita JPA para construir cualquier objeto.
 	public Producto() {
 	}
 
+
 	public Producto(String nombre, double precio, double medidaAlto, double medidaAncho, double medidaLargo,
 			String categoria, String descripcion, String tecnica, int stock, String infoAdicional, byte[] foto) {
+
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
@@ -93,8 +118,10 @@ public class Producto {
 		this.tecnica = tecnica;
 		this.stock = stock;
 		this.infoAdicional = infoAdicional;
+
 		this.foto = foto;
 	}
+
 
 
 
@@ -102,12 +129,9 @@ public class Producto {
 		return nombre;
 	}
 
-
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 
 	public double getPrecio() {
@@ -115,17 +139,13 @@ public class Producto {
 	}
 
 
-
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
-
-
 	public double getMedidaAlto() {
 		return medidaAlto;
 	}
-
 
 
 	public void setMedidaAlto(double medidaAlto) {
@@ -133,11 +153,9 @@ public class Producto {
 	}
 
 
-
 	public double getMedidaAncho() {
 		return medidaAncho;
 	}
-
 
 
 	public void setMedidaAncho(double medidaAncho) {
@@ -145,16 +163,14 @@ public class Producto {
 	}
 
 
-
 	public double getMedidaLargo() {
 		return medidaLargo;
 	}
 
-
-
 	public void setMedidaLargo(double medidaLargo) {
 		this.medidaLargo = medidaLargo;
 	}
+
 
 
 
@@ -175,22 +191,20 @@ public class Producto {
 	}
 
 
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
 
 
 	public String getTecnica() {
 		return tecnica;
 	}
 
-
-
 	public void setTecnica(String tecnica) {
 		this.tecnica = tecnica;
 	}
+
+
 
 
 
@@ -200,16 +214,15 @@ public class Producto {
 
 
 
+
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
 
 
-
 	public String getInfoAdicional() {
 		return infoAdicional;
 	}
-
 
 
 	public void setInfoAdicional(String infoAdicional) {
@@ -240,15 +253,18 @@ public class Producto {
 
 
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+
 		result = prime * result + Arrays.hashCode(foto);
 		result = prime * result + Objects.hash(categoria, descripcion, infoAdicional, medidaAlto, medidaAncho,
 				medidaLargo, nombre, precio, stock, tecnica);
 		return result;
 	}
+
 
 
 
@@ -261,17 +277,18 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
+
 		return Objects.equals(categoria, other.categoria) && Objects.equals(descripcion, other.descripcion)
 				&& Arrays.equals(foto, other.foto) && Objects.equals(infoAdicional, other.infoAdicional)
 				&& Double.doubleToLongBits(medidaAlto) == Double.doubleToLongBits(other.medidaAlto)
 				&& Double.doubleToLongBits(medidaAncho) == Double.doubleToLongBits(other.medidaAncho)
 				&& Double.doubleToLongBits(medidaLargo) == Double.doubleToLongBits(other.medidaLargo)
 				&& Objects.equals(nombre, other.nombre)
-				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio) && stock == other.stock
-				&& Objects.equals(tecnica, other.tecnica);
+				&& Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
+				&& Arrays.equals(productos, other.productos) && stock == other.stock
+				&& Objects.equals(tecnica, other.tecnica) && Objects.equals(vendedor, other.vendedor);
 	}
-	
-	
+
 	
 }
 
