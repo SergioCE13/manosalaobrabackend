@@ -16,7 +16,7 @@ import com.example.manosalaobrabackend.model.Tarjeta;
 import com.example.manosalaobrabackend.service.TarjetaService;
 
 @RestController
-@RequestMapping("/api/manosalaobrabackend/tarjeta")
+@RequestMapping("/api/mao/tarjeta")
 public class TarjetaController {
 	private TarjetaService tarjetaService;
 	
@@ -49,5 +49,11 @@ public class TarjetaController {
 	public void deleteTarjeta(@PathVariable(name = "id") Long id) {
 		tarjetaService.deleteTarjeta(id);
 	}
+	
+	@GetMapping("/cliente/{correo}")
+	public List<Tarjeta> getClienteTarjeta(@PathVariable(name = "correo") String correo){
+		return tarjetaService.getByCliente(correo);
+	}
+	
 	
 }

@@ -5,11 +5,15 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity // Declaramos que esta clase será una entidad
@@ -24,106 +28,176 @@ public class Cliente {
 	private String apellidoPaterno;
 	@Column(name = "ape_materno", length = 45, nullable = false, unique = false)
 	private String apellidoMaterno;
+	@Column(name = "genero", length = 45, nullable = false, unique = false)
+	private String genero;
+	@Column(name = "telefono", length = 10, nullable = false, unique = false)
+	private Long telefono;
 	@Column(name = "fecha_nacimiento", length = 10, nullable  = false, unique = false)
 	private String fechaNacimiento;
 	@Column(name = "contraseña", length = 45, nullable = false, unique = false)
 	private String password;
-	
-	// ------------------- Declaramos la relación ManyToOne  con respecto a la Entidad vendedor:
 
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+	// ------------------- Declaramos las relaciones de la entidad Cliente
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	@JsonManagedReference
-	public List<Tarjeta> tarjetas;
+	private List<Direccion> direcciones;
 	
-	// ------------------- Declaramos la relación OneToMany con respecto a la Entidad Tarjeta:
-	//@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-	//public List<Direccion> direcciones;
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private List<Tarjeta> tarjetas;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private List<Compra> compras;
+	
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+
+	@JsonManagedReference
+	private List<Favorito> favoritos;
+	
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private Carrito carrito;
+	
+	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	private Comentario comentario;
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//Declaramos un construtor para JPA
 	public Cliente() {
 	}
 
-	//Declaramos un constructor con todos los atributos.
-	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento,
-			String password) {
+
+	public Cliente(String correo, String nombre, String apellidoPaterno, String apellidoMaterno, String genero,
+			Long telefono, String fechaNacimiento, String password, List<Direccion> direcciones) {
 		this.correo = correo;
 		this.nombre = nombre;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
+		this.genero = genero;
+		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.password = password;
+		this.direcciones = direcciones;
 	}
 	
 	
 
-	//Getters y Setters
+
 	public String getCorreo() {
 		return correo;
 	}
+
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
 
+
 	public String getNombre() {
 		return nombre;
 	}
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
 	public String getApellidoPaterno() {
 		return apellidoPaterno;
 	}
+
 
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
 
+
 	public String getApellidoMaterno() {
 		return apellidoMaterno;
 	}
+
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+	public Long getTelefono() {
+		return telefono;
+	}
+
+
+	public void setTelefono(Long telefono) {
+		this.telefono = telefono;
+	}
+
+
 	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
+
 
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+
 	public String getPassword() {
 		return password;
 	}
+
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	//Creamos un método toString para imprimir la información de los clientes.
+
+	public List<Direccion> getDirecciones() {
+		return direcciones;
+	}
+
+
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [correo=").append(correo).append(", nombre=").append(nombre)
-				.append(", apellidoPaterno=").append(apellidoPaterno).append(", apellidoMaterno=")
-				.append(apellidoMaterno).append(", fechaNacimiento=").append(fechaNacimiento).append(", password=")
-				.append(password).append("]");
-		return builder.toString();
+		return "Cliente [correo=" + correo + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
+				+ ", apellidoMaterno=" + apellidoMaterno + ", genero=" + genero + ", telefono=" + telefono
+				+ ", fechaNacimiento=" + fechaNacimiento + ", password=" + password + ", direcciones=" + direcciones
+				+ "]";
 	}
 
-	//Declaramos un método para verificar el valor hash de los objetos.
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, fechaNacimiento, nombre, password);
+		return Objects.hash(apellidoMaterno, apellidoPaterno, correo, direcciones, fechaNacimiento, genero, nombre,
+				password, telefono);
 	}
 
-	//Declaramos un método equals para verificar que no haya objetos iguales.
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -135,12 +209,12 @@ public class Cliente {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(apellidoMaterno, other.apellidoMaterno)
 				&& Objects.equals(apellidoPaterno, other.apellidoPaterno) && Objects.equals(correo, other.correo)
-				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(password, other.password);
+				&& Objects.equals(direcciones, other.direcciones)
+				&& Objects.equals(fechaNacimiento, other.fechaNacimiento) && Objects.equals(genero, other.genero)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
+				&& Objects.equals(telefono, other.telefono);
 	}
-	
-	
-	
+
 	
 	
 }

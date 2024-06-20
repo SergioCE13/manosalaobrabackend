@@ -31,25 +31,33 @@ public class Tarjeta{
 	private String banco;
 	@Column(name="compania",length=16, nullable=false, unique=false)
 	private String compania;
+	@Column(name = "tipo", length = 20, nullable = false, unique = false)
+	private String tipo;
+	///-----------------------!!!!! IMPORTANTE AÑADIR EL TIPO DE TARJETA DE CREDITO/DEBITO.
 	
-	//-------------- De claramos la relación ManyToOne para Tarjeta referenciando a cliente.
+	// ----------------------- Declarando las relaciónes de la entidad Tarjeta
+	// 1. Relación ManyToOne con cliente
 	@ManyToOne
-	@JoinColumn(name = "id_cliente", referencedColumnName = "correo" ,nullable = false)
+	@JoinColumn(name = "cliente_correo", referencedColumnName = "correo")
 	@JsonBackReference
 	private Cliente cliente;
+
+	// 2. Relación *implicita*  ManyToOne con Compra
+
 
 	//----------------------  Constructores -> Equals
 	public Tarjeta() {
 	}
 
 	public Tarjeta(Long numero, String tarjetahabiente, Date fechaExpiracion, int cvv, String banco, String compania,
-			Cliente cliente) {
+			String tipo, Cliente cliente) {
 		this.numero = numero;
 		this.tarjetahabiente = tarjetahabiente;
 		this.fechaExpiracion = fechaExpiracion;
 		this.cvv = cvv;
 		this.banco = banco;
 		this.compania = compania;
+		this.tipo = tipo;
 		this.cliente = cliente;
 	}
 
@@ -101,6 +109,14 @@ public class Tarjeta{
 		this.compania = compania;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -111,16 +127,14 @@ public class Tarjeta{
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Tarjeta [numero=").append(numero).append(", tarjetahabiente=").append(tarjetahabiente)
-				.append(", fechaExpiracion=").append(fechaExpiracion).append(", cvv=").append(cvv).append(", banco=")
-				.append(banco).append(", compania=").append(compania).append(", cliente=").append(cliente).append("]");
-		return builder.toString();
+		return "Tarjeta [numero=" + numero + ", tarjetahabiente=" + tarjetahabiente + ", fechaExpiracion="
+				+ fechaExpiracion + ", cvv=" + cvv + ", banco=" + banco + ", compania=" + compania + ", tipo=" + tipo
+				+ ", cliente=" + cliente + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(banco, cliente, compania, cvv, fechaExpiracion, numero, tarjetahabiente);
+		return Objects.hash(banco, cliente, compania, cvv, fechaExpiracion, numero, tarjetahabiente, tipo);
 	}
 
 	@Override
@@ -135,6 +149,9 @@ public class Tarjeta{
 		return Objects.equals(banco, other.banco) && Objects.equals(cliente, other.cliente)
 				&& Objects.equals(compania, other.compania) && cvv == other.cvv
 				&& Objects.equals(fechaExpiracion, other.fechaExpiracion) && Objects.equals(numero, other.numero)
-				&& Objects.equals(tarjetahabiente, other.tarjetahabiente);
+				&& Objects.equals(tarjetahabiente, other.tarjetahabiente) && Objects.equals(tipo, other.tipo);
 	}
+
+	
+	
 }

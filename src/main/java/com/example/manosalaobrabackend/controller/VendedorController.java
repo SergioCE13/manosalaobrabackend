@@ -3,23 +3,24 @@ package com.example.manosalaobrabackend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.manosalaobrabackend.model.Vendedor;
 import com.example.manosalaobrabackend.service.VendedorService;
 @RestController
-@RequestMapping("/api/manosalaobrabackend/vendedor")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@RequestMapping("/api/mao/vendedor")
+
 public class VendedorController {
-	public VendedorService vendedorService;
+private VendedorService vendedorService;
+
 
 	@Autowired
 	public VendedorController(VendedorService vendedorService) {
@@ -33,8 +34,19 @@ public class VendedorController {
 	
 	//Mapear Post y recibir como parámetro del método una anotación @RequestBody pra vinularlo con el valor (atributos) del cuerpo del modelo
 	@PostMapping
-	public Vendedor newUser(@RequestBody Vendedor vendedor) { //Cuando se vea una anotacion Reuest Body signific que voy a recibir todos los atrbutos existentes en el modelo, por ende, se deben indicar en el oren en que estan en el modelo.
-		return vendedorService.postVendedor(vendedor);
+
+	public String newVendedor(
+			@RequestParam("correo") String correo,
+			@RequestParam("nombre") String nombre,
+			@RequestParam("ape_paterno") String apellidoPaterno,
+			@RequestParam("ape_materno") String apellidoMaterno,
+			@RequestParam("genero") String genero,
+			@RequestParam("telefono") Long telefono ,
+			@RequestParam("fecha_nacimiento") String fechaNacimiento,
+			@RequestParam("contraseña") String password,
+			@RequestParam("foto") MultipartFile file) {
+		return vendedorService.postVendedor(correo, nombre, apellidoPaterno, apellidoMaterno, genero, telefono, fechaNacimiento, password, file);
+
 	}
 	
 	@GetMapping("/{id}")

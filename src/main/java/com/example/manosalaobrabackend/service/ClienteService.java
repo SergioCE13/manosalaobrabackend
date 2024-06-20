@@ -1,4 +1,4 @@
-package com.example.manosalaobrabackend.service;
+ package com.example.manosalaobrabackend.service;
 
 import java.util.List;
 
@@ -37,6 +37,8 @@ public class ClienteService {
 					clienteMap.setNombre(cliente.getNombre());
 					clienteMap.setApellidoPaterno(cliente.getApellidoPaterno());
 					clienteMap.setApellidoMaterno(cliente.getApellidoMaterno());
+					clienteMap.setGenero(cliente.getGenero());
+					clienteMap.setTelefono(cliente.getTelefono());
 					clienteMap.setFechaNacimiento(cliente.getFechaNacimiento());
 					clienteMap.setPassword(cliente.getPassword());
 					return clienteRepository.save(clienteMap);

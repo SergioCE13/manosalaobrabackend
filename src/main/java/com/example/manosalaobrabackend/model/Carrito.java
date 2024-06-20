@@ -1,12 +1,19 @@
 package com.example.manosalaobrabackend.model;
 
 import java.util.Objects;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity // Declaramos que esta clase será una entidad
@@ -18,63 +25,58 @@ public class Carrito {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
     
-    @Column(name = "cliente_correo", length = 45, nullable = false)
-    private String clienteCorreo;
-    
     @Column(name = "num_productos", nullable = false)
     private int numProductos;
+
+    // ----------------------------------- Definimos las relaciones de la entidad Carrito.
+    //1. Relación OneToOne con cliente.
+    @OneToOne
+    @JoinColumn(name = "correo_cliente")
+    @JsonBackReference
+    private Cliente cliente;
     
-   
+    //2. Relación ManyToMany con producto.
+    @ManyToMany
+    @JoinTable(
+    		name = "productos_en_carrito",
+    		joinColumns = @JoinColumn(name = "id_carrito")
+    		)
+    private Set<Producto> producto;
+    
     
     // Constructor para JPA
     public Carrito() {
     }
 
-    // Constructor con todos los atributos
-    public Carrito(String clienteCorreo, Long productoId,  int numProductos) {
-        this.clienteCorreo = clienteCorreo;
-        this.numProductos = numProductos;
-        
-    }
+	public Carrito(Long id, int numProductos) {
+		this.id = id;
+		this.numProductos = numProductos;
+	}
 
-    // Getters y Setters
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getClienteCorreo() {
-        return clienteCorreo;
-    }
+	public int getNumProductos() {
+		return numProductos;
+	}
 
-    public void setClienteCorreo(String clienteCorreo) {
-        this.clienteCorreo = clienteCorreo;
-    }
+	public void setNumProductos(int numProductos) {
+		this.numProductos = numProductos;
+	}
 
-    public int getNumProductos() {
-        return numProductos;
-    }
+	@Override
+	public String toString() {
+		return "Carrito [id=" + id + ", numProductos=" + numProductos + "]";
+	}
 
-    public void setNumProductos(int cantidad) {
-        this.numProductos = cantidad;
-    }
-
-  
-    
-
-    // Método toString para imprimir la información del carrito
-    @Override
-   	public String toString() {
-   		return "Carrito [id=" + id + ", clienteCorreo=" + clienteCorreo + ", numProductos=" + numProductos + "]";
-   	}
-   
-
-    @Override
+	@Override
 	public int hashCode() {
-		return Objects.hash(clienteCorreo, id, numProductos);
+		return Objects.hash(id, numProductos);
 	}
 
 	@Override
@@ -86,7 +88,9 @@ public class Carrito {
 		if (getClass() != obj.getClass())
 			return false;
 		Carrito other = (Carrito) obj;
-		return Objects.equals(clienteCorreo, other.clienteCorreo) && Objects.equals(id, other.id)
-				&& numProductos == other.numProductos;
+		return Objects.equals(id, other.id) && numProductos == other.numProductos;
 	}
+    
+    
+
 }
