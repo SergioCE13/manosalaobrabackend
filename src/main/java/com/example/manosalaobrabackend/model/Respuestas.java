@@ -32,14 +32,9 @@ public class Respuestas {
 		private Timestamp fechaHora;
 		@Column (name = "correo", length = 45, nullable = false, unique =false )
 		private String correo;
-		
-	    @ManyToOne
-	    @JoinColumn(name = "comentario", referencedColumnName = "id")
-	    @JsonBackReference
-	    private Comentario comentario;
 	
 		@ManyToOne
-		@JoinColumn(name = "id_comentario", referencedColumnName = "correo", nullable = false)
+		@JoinColumn(name = "id_comentario", referencedColumnName = "cliente", nullable = false)
 		@JsonBackReference
 		private Comentario comentario;
 		

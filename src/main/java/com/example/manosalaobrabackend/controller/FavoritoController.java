@@ -26,43 +26,5 @@ public class FavoritoController {
 	@Autowired
     private FavoritoService favoritoService;
 
-    @PostMapping
-    public ResponseEntity<Favorito> createFavorito(@RequestBody Favorito favorito) {
-        Favorito savedFavorito = favoritoService.saveFavorito(favorito);
-        return ResponseEntity.ok(savedFavorito);
-    }
 
-    @GetMapping
-    public ResponseEntity<List<Favorito>> getAllFavoritos() {
-        List<Favorito> favoritos = favoritoService.getAllFavoritos();
-        return ResponseEntity.ok(favoritos);
-    }
-
-    @GetMapping("/{clienteFav}/{productoFav}")
-    public ResponseEntity<Favorito> getFavoritoById(@PathVariable String clienteFav, @PathVariable String productoFav) {
-        FavoritoId id = new FavoritoId(clienteFav, productoFav);
-        Optional<Favorito> favorito = favoritoService.getFavoritoById(id);
-        return favorito.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/{clienteFav}/{productoFav}")
-    public ResponseEntity<Favorito> updateFavorito(@PathVariable String clienteFav, @PathVariable String productoFav, @RequestBody Favorito favoritoDetails) {
-        FavoritoId id = new FavoritoId(clienteFav, productoFav);
-        if (!favoritoService.getFavoritoById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        favoritoDetails.setId(id);
-        Favorito updatedFavorito = favoritoService.updateFavorito(favoritoDetails);
-        return ResponseEntity.ok(updatedFavorito);
-    }
-
-    @DeleteMapping("/{clienteFav}/{productoFav}")
-    public ResponseEntity<Void> deleteFavorito(@PathVariable String clienteFav, @PathVariable String productoFav) {
-        FavoritoId id = new FavoritoId(clienteFav, productoFav);
-        if (!favoritoService.getFavoritoById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        favoritoService.deleteFavoritoById(id);
-        return ResponseEntity.noContent().build();
-    }
 }

@@ -44,12 +44,13 @@ public class Compra {
 	private Cliente cliente;
 	
 	@OneToOne
-	@JoinColumn(name = "id_tarjeta", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "id_tarjeta", referencedColumnName = "numero", nullable = false)
 	private Tarjeta tarjeta;
 	
 	@OneToOne
 	@JoinColumn(name = "id_direccion", referencedColumnName = "id", nullable = false)
-	private Direccion direcion;
+	 @JsonBackReference
+	private Direccion direccion;
 	
 	
 	
